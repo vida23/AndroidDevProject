@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">DIMPGuide</string>
+    <string name="app_title">DIMP Guide</string>
+    <string name="continue_without_login">Continue without login</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="year">Year</string>
+    <string name="Programme">Programme</string>
 </resources>
