@@ -9,4 +9,16 @@
     <string name="email">E-mail</string>
     <string name="year">Year</string>
     <string name="Programme">Programme</string>
+    <string name="Year1">Year 1</string>
+    <string name="Year2">Year 2</string>
+    <string name="Year3">Year 3</string>
+    <string-array name="Programmes">
+        <item>Software Development</item>
+        <item>Built in system</item>
+    </string-array>
+    <string-array name="Years">
+        <item>Year 1</item>
+        <item>Year 2</item>
+        <item>Year 3</item>
+    </string-array>
 </resources>

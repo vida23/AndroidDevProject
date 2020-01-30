@@ -9,7 +9,7 @@
         android:id="@+id/signUpTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up"
+        android:text="@string/sign_in"
         android:textSize="20sp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,8 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        />
+        android:layout_marginEnd="24dp" />
     <EditText
         android:id="@+id/password"
         android:hint="@string/password"
@@ -38,7 +37,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        />
+        android:layout_marginEnd="24dp" />
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
