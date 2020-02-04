@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
             val intent =  Intent(this,SignInActivity::class.java)
             startActivity(intent)
         }
+        continueWithoutLogin.setOnClickListener {
+            val intent = Intent(this,ProgrammeYearActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
