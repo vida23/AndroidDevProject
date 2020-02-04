@@ -17,7 +17,7 @@ class CoursesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_courses)
 
         val dataset:Array<Course> = arrayOf(
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
+            Course("Diskret Matematikafgfgdfughrthyrtyujhdfugrhtuigheuighuigheuigheruhguerhguierhgrueghreuhgerugeirgregeherguegueruh","Objektorienterad mjukvaruutveckling med designmönster","Augusti"),
             Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober") ,
             Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
             Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
