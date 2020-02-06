@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DIMPGuiden</string>
+    <string name="Programme">Program</string>
+    <string name="app_title">DIMP Guiden</string>
+    <string name="continue_without_login">Fortsätt utan att logga in</string>
+    <string name="email">E-mail</string>
+    <string name="password">Lösenord</string>
+    <string name="sign_in">Skapa konto</string>
+    <string name="sign_up">Logga in</string>
+    <string name="username">Användarnamn</string>
+    <string name="year">Årskurs</string>
+    <string name="Year1">Årskurs 1</string>
+    <string name="Year2">Årskurs 2</string>
+    <string name="Year3">Årskurs 3</string>
+    <string-array name="Programmes">
+        <item>Mjukvaruutveckling och mobila plattformar</item>
+        <item>Inbyggda system</item>
+    </string-array>
+    <string-array name="Years">
+        <item>Årskurs 1</item>
+        <item>Årskurs 2</item>
+        <item>Årskurs 3</item>
+    </string-array>
+</resources>
