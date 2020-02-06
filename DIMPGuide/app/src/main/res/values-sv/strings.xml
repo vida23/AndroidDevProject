@@ -22,4 +22,9 @@
         <item>Årskurs 2</item>
         <item>Årskurs 3</item>
     </string-array>
+    <string name="CourseMaterial">Kurs material</string>
+    <string name="GoodToKnow">Bra kunskap att ha angående kursen</string>
+    <string name="Rating">Lämmna gärna ett betyg på kursen</string>
+    <string name="FAQ">FAQ</string>
+    <string name="Ask">Fråga</string>
 </resources>

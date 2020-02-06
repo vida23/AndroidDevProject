@@ -21,4 +21,9 @@
         <item>Year 2</item>
         <item>Year 3</item>
     </string-array>
+    <string name="Rating">Feel free to rate the course</string>
+    <string name="CourseMaterial">Course Material</string>
+    <string name="GoodToKnow">Good knowledge to know about the course</string>
+    <string name="FAQ">FAQ</string>
+    <string name="Ask">Ask</string>
 </resources>

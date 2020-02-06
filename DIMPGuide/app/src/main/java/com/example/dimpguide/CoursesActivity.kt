@@ -40,7 +40,7 @@ class CoursesActivity : AppCompatActivity() {
         )
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = CourseRecyclerViewAdapter(dataset)
+        viewAdapter = CourseRecyclerViewAdapter(dataset,this)
 
         coursesRecyclerView = findViewById<RecyclerView>(R.id.coursesRecyclerView).apply{
             setHasFixedSize(true)
@@ -49,5 +49,7 @@ class CoursesActivity : AppCompatActivity() {
 
             adapter = viewAdapter
         }
+
+
     }
 }
