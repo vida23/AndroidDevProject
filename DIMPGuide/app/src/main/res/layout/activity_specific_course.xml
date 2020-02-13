@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Specific_course">
+
+    <TextView
+        android:id="@+id/Course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/CourseRatingBar"
+        app:layout_constraintEnd_toEndOf="@id/CourseRatingBar"
+        app:layout_constraintStart_toStartOf="@id/CourseRatingBar" />
+
     <RatingBar
         android:id="@+id/CourseRatingBar"
         android:layout_width="wrap_content"
@@ -47,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/CourseMaterialButton"/>
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="404dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/GoodToKnowButton"
