@@ -27,4 +27,7 @@
     <string name="Rating">Lämmna gärna ett betyg på kursen</string>
     <string name="FAQ">FAQ</string>
     <string name="Ask">Fråga</string>
+    <string name="EnterAQuestion">Fråga en fråga</string>
+    <string name="Subject">Ämne</string>
+    <string name="Submit">Bekräfta</string>
 </resources>

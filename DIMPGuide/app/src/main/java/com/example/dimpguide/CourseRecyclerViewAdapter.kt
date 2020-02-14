@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
 class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val context: Context) :
-    RecyclerView.Adapter<CourseRecyclerViewAdapter.MyViewHolder>(){
+       RecyclerView.Adapter<CourseRecyclerViewAdapter.MyViewHolder>(){
 
 
     class MyViewHolder(v:View) :RecyclerView.ViewHolder(v) , View.OnClickListener {

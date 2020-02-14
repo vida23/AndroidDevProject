@@ -15,13 +15,21 @@ class Specific_course : AppCompatActivity() {
         findViewById<TextView>(R.id.Course).apply{
             this.text = name
         }
-        val courseMaterialButton = findViewById<Button>(R.id.CourseMaterialButton)
-
-        courseMaterialButton.setOnClickListener {
+        findViewById<Button>(R.id.CourseMaterialButton)
+            .setOnClickListener {
             val intent = Intent(this,CourseMaterialActivity::class.java)
             //Shall put id from the database here when valid
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.FAQButton)
+            .setOnClickListener {
+                startActivity(Intent(this,FAQActivity::class.java))
+            }
+        findViewById<Button>(R.id.AskButton)
+            .setOnClickListener {
+                startActivity(Intent(this,AskActivity::class.java))
+            }
 
     }
 }

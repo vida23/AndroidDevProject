@@ -26,4 +26,7 @@
     <string name="GoodToKnow">Good knowledge to know about the course</string>
     <string name="FAQ">FAQ</string>
     <string name="Ask">Ask</string>
+    <string name="EnterAQuestion">Enter a question</string>
+    <string name="Subject">Subject</string>
+    <string name="Submit">Submit</string>
 </resources>

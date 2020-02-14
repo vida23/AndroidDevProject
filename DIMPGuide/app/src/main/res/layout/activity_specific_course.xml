@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@id/CourseRatingBar"
         app:layout_constraintEnd_toEndOf="@id/CourseRatingBar"
         app:layout_constraintStart_toStartOf="@id/CourseRatingBar" />
