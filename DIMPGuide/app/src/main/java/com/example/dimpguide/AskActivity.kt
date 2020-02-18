@@ -18,9 +18,9 @@ class AskActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s!!.length < 3){
-                    subjectErrorText.text= getString(R.string.ToShort)
+                    subjectErrorText.text= getString(R.string.ToShortSubject)
                 }else if(s!!.length >20){
-                    subjectErrorText.text = getString(R.string.ToLong)
+                    subjectErrorText.text = getString(R.string.ToLongSubject)
                 }else{
                     subjectErrorText.text = ""
                     submitButton.isEnabled =true
@@ -46,9 +46,9 @@ class AskActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(s!!.length < 5){
-                    questionErrorText.text = getString(R.string.ToShort)
+                    questionErrorText.text = getString(R.string.ToShortQuestion)
                 }else if(s!!.length > 100){
-                    questionErrorText.text = getString(R.string.ToLong)
+                    questionErrorText.text = getString(R.string.toLongQuestion)
                 }else{
                     questionErrorText.text = ""
                     submitButton.isEnabled = true
