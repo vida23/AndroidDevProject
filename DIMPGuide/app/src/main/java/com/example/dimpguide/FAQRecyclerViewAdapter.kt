@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.faq_recycler_view_item.view.*
 
@@ -12,10 +13,27 @@ class FAQRecyclerViewAdapter(private val dataset: Array<FAQ>,private val context
 
     class FAQViewHolder(v: View): RecyclerView.ViewHolder(v){
         private var view : View = v
+        private var isAnswerShowing : Boolean = true
         fun bindFAQ(FAQ: FAQ,context: Context){
+            if(isAnswerShowing == true){
+                view.Answer.visibility = View.INVISIBLE
+                isAnswerShowing = false
+            }
             view.Question.text = FAQ.question
-            view.FAQSpinner.adapter = ArrayAdapter(context,android.R.layout.simple_spinner_item,
-                arrayOf(FAQ.answer))
+            view.toggleButton.setOnClickListener {
+                if(view.Answer.visibility == View.VISIBLE){
+                    view.Answer.visibility = View.INVISIBLE
+                    view.Answer.setPadding(0,0,0,0)
+                    view.Answer.text = ""
+                    view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0)
+                }else{
+                    view.Answer.visibility = View.VISIBLE
+                    view.Answer.setPadding(10,10,10,10)
+                    view.Answer.text = FAQ.answer
+                    view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT)
+                }
+            }
         }
     }
 

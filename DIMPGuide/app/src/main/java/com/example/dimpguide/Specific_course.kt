@@ -30,6 +30,10 @@ class Specific_course : AppCompatActivity() {
             .setOnClickListener {
                 startActivity(Intent(this,AskActivity::class.java))
             }
+        findViewById<Button>(R.id.GoodToKnowButton)
+            .setOnClickListener {
+                startActivity(Intent(this,GoodToKnowActivity::class.java))
+            }
 
     }
 }

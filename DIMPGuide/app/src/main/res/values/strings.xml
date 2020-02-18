@@ -29,4 +29,6 @@
     <string name="EnterAQuestion">Enter a question</string>
     <string name="Subject">Subject</string>
     <string name="Submit">Submit</string>
+    <string name="ToLong">To long</string>
+    <string name="ToShort">To short</string>
 </resources>

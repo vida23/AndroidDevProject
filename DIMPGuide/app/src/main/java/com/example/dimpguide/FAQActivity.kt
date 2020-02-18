@@ -14,8 +14,8 @@ class FAQActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_faq)
 
-        val dataset:Array<FAQ> = arrayOf(FAQ("WHY ARE WE STILL ALIVE","NICOLAS CAGE"),
-            FAQ("WHY AM I HERE","SATAN")
+        val dataset:Array<FAQ> = arrayOf(FAQ("TELL ME WHY","NICOLAS CAGEfhdghdgfgfgfgfsg fdsfdsgsg d dfgfd hgfdgdf gd g fdgdf gfd gfd gfd g"),
+            FAQ("WHY AM I HERE","Because nice")
         )
 
         viewManager = LinearLayoutManager(this)

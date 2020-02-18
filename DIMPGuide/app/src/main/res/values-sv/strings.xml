@@ -30,4 +30,6 @@
     <string name="EnterAQuestion">Fråga en fråga</string>
     <string name="Subject">Ämne</string>
     <string name="Submit">Bekräfta</string>
+    <string name="ToLong">För långt</string>
+    <string name="ToShort">För kort</string>
 </resources>

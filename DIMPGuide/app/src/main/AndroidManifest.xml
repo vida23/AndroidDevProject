@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AskActivity"></activity>
+        <activity android:name=".GoodToKnowActivity"></activity>
+        <activity android:name=".AskActivity" />
         <activity android:name=".FAQActivity" />
         <activity android:name=".CourseMaterialActivity" />
         <activity android:name=".Specific_course" />
