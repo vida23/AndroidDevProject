@@ -23,12 +23,10 @@ class FAQRecyclerViewAdapter(private val dataset: Array<FAQ>,private val context
             view.toggleButton.setOnClickListener {
                 if(view.Answer.visibility == View.VISIBLE){
                     view.Answer.visibility = View.INVISIBLE
-                    view.Answer.setPadding(0,0,0,0)
                     view.Answer.text = ""
                     view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0)
                 }else{
                     view.Answer.visibility = View.VISIBLE
-                    view.Answer.setPadding(10,10,10,10)
                     view.Answer.text = FAQ.answer
                     view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT)
