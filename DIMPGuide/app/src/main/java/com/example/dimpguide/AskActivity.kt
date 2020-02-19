@@ -17,9 +17,9 @@ class AskActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(s!!.length < 3){
+                if(s!!.length < MINIMUM_SUBJECT_LENGTH){
                     subjectErrorText.text= getString(R.string.ToShortSubject)
-                }else if(s!!.length >20){
+                }else if(s!!.length > MAXIMUM_SUBJECT_LENGTH){
                     subjectErrorText.text = getString(R.string.ToLongSubject)
                 }else{
                     subjectErrorText.text = ""
@@ -28,14 +28,15 @@ class AskActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if(EnterQuestionText.text.length<5 || EnterQuestionText.text.length>100){
+                if(EnterQuestionText.text.length< MINIMUM_QUESTION_LENGTH || EnterQuestionText.text.length> MAXIMUM_QUESTION_LENGTH){
                     submitButton.isEnabled = false
                 }
             }
         })
         EnterQuestionText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if(subjectText.text.length < 3 || subjectText.text.length>20){
+                if(subjectText.text.length < MINIMUM_SUBJECT_LENGTH || subjectText.text.length > MAXIMUM_SUBJECT_LENGTH){
+
                     submitButton.isEnabled = false
                 }
             }
@@ -45,9 +46,9 @@ class AskActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(s!!.length < 5){
+                if(s!!.length < MINIMUM_QUESTION_LENGTH){
                     questionErrorText.text = getString(R.string.ToShortQuestion)
-                }else if(s!!.length > 100){
+                }else if(s!!.length > MAXIMUM_QUESTION_LENGTH){
                     questionErrorText.text = getString(R.string.toLongQuestion)
                 }else{
                     questionErrorText.text = ""
@@ -56,6 +57,12 @@ class AskActivity : AppCompatActivity() {
             }
 
         })
+    }
+    companion object{
+        const val MINIMUM_QUESTION_LENGTH = 5
+        const val MAXIMUM_QUESTION_LENGTH = 100
+        const val MINIMUM_SUBJECT_LENGTH = 3
+        const val MAXIMUM_SUBJECT_LENGTH = 20
     }
 
 

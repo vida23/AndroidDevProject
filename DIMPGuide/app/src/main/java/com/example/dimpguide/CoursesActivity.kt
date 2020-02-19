@@ -20,22 +20,6 @@ class CoursesActivity : AppCompatActivity() {
             Course("Diskret Matematik","Objektorienterad mjukvaruutveckling med designmönster","Augusti"),
             Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober") ,
             Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
-            Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober"),
-            Course("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"),
             Course("Linjär ALgebra", "Introduktion Till programmejring","Oktober")
         )
 
