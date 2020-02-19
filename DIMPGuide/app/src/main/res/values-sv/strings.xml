@@ -32,4 +32,9 @@
     <string name="Submit">Bekräfta</string>
     <string name="ToLongSubject">För långt ämne</string>
     <string name="ToShortSubject">För kort ämne</string>
+    <string name="ToShortQuestion">För kort fråga</string>
+    <string name="toLongQuestion">För lång fråga</string>
+    <string name="emailErrorNoAt">Du behöver en giltig e-mail (@)</string>
+    <string name="toShortPassword">För kort lösenord</string>
+    <string name="toShortUsername">För kort Användarnamn</string>
 </resources>

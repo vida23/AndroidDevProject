@@ -11,15 +11,16 @@
         android:text="@string/sign_up"
         android:textSize="20sp"
         android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/emailErrorText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="60dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
     <EditText
         android:id="@+id/username"
         android:hint="@string/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         app:layout_constraintTop_toBottomOf="@id/signUpTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +33,7 @@
         android:hint="@string/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         app:layout_constraintTop_toBottomOf="@id/username"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +46,7 @@
         android:hint="@string/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         app:layout_constraintTop_toBottomOf="@id/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,10 +54,28 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         />
+    <TextView
+        android:id="@+id/usernameErrorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/passwordErrorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/usernameErrorText"/>
+    <TextView
+        android:id="@+id/emailErrorText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/passwordErrorText"/>
 
     <Spinner
         android:id="@+id/year"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/email"

@@ -33,4 +33,7 @@
     <string name="ToShortSubject">To short subject</string>
     <string name="ToShortQuestion">To short question</string>
     <string name="toLongQuestion">To long question</string>
+    <string name="toShortUsername">To short username</string>
+    <string name="toShortPassword">To short password</string>
+    <string name="emailErrorNoAt">You need valid e-mail (@)</string>
 </resources>
