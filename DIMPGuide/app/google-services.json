@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "768787157357",
+    "firebase_url": "https://dimp-guide.firebaseio.com",
+    "project_id": "dimp-guide",
+    "storage_bucket": "dimp-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768787157357:android:1ff0085c559035f1e24a64",
+        "android_client_info": {
+          "package_name": "com.example.dimpguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768787157357-v54vuvb98eo6dt5c97962ft3q8da8j62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx3Jg1fHU9JHZr6hUCk7GZJkEypASY-AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768787157357-v54vuvb98eo6dt5c97962ft3q8da8j62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
