@@ -37,4 +37,5 @@
     <string name="emailErrorNoAt">Du behöver en giltig e-mail (@)</string>
     <string name="toShortPassword">För kort lösenord</string>
     <string name="toShortUsername">För kort Användarnamn</string>
+    <string name="sign_out">Logga ut</string>
 </resources>

@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
@@ -112,6 +114,26 @@ class SignupActivity : AppCompatActivity() {
             }
 
         })
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if(LoggedInManager.isLoggedIn){
+            menuInflater.inflate(R.menu.app_bar_menu,menu)
+            return true
+
+        }else
+            return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.title == getString(R.string.sign_out)){
+            LoggedInManager.changeLoginState(false)
+            item.title = getString(R.string.sign_in)
+            return true
+        }else if(item.title == getString(R.string.sign_in)){
+            startActivity(Intent(this,SignInActivity::class.java))
+            return true
+        }
+        return false
     }
     companion object Companion{
         const val MIN_USERNAME_LENGTH = 2
