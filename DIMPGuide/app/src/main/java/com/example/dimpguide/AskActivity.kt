@@ -9,7 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_ask.*
 
-class AskActivity : AppCompatActivity() {
+class AskActivity : BaseFunctionsForAllActivities() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,26 +60,6 @@ class AskActivity : AppCompatActivity() {
             }
 
         })
-    }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if(LoggedInManager.isLoggedIn){
-            menuInflater.inflate(R.menu.app_bar_menu,menu)
-            return true
-
-        }else
-            return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.title == getString(R.string.sign_out)){
-            LoggedInManager.changeLoginState(false)
-            item.title = getString(R.string.sign_in)
-            return true
-        }else if(item.title == getString(R.string.sign_in)){
-            startActivity(Intent(this,SignInActivity::class.java))
-            return true
-        }
-        return false
     }
     companion object{
         const val MINIMUM_QUESTION_LENGTH = 5

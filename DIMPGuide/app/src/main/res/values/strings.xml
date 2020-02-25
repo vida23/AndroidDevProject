@@ -4,6 +4,7 @@
     <string name="continue_without_login">Continue without login</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
+    <string name="sign_up_or_sign_in">Sign up/Sign In</string>
     <string name="sign_out">Sign Out</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
