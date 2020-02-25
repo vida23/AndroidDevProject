@@ -1,19 +1,9 @@
 package com.example.dimpguide
 
-import android.content.Context
 import android.content.Intent
-import android.provider.Settings.Global.getString
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
-import androidx.core.content.IntentCompat
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
 
 
 open class BaseFunctionsForAllActivities() : AppCompatActivity(){
@@ -40,21 +30,20 @@ open class BaseFunctionsForAllActivities() : AppCompatActivity(){
         if(item.title == getString(R.string.sign_out)){
             LoggedInManager.changeLoginState(false)
             menuItem!!.title = getString(R.string.sign_up_or_sign_in)
-            val intents = Intent(this, MainActivity::class.java)
-            intents.addFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK
-                        or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intents)
+
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
             finish()
+            // Referens:  https://stackoverflow.com/questions/14001963/finish-all-activities-at-a-time
             return true
         }else {
-            val intents = Intent(this, MainActivity::class.java)
-            intents.addFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK
-                        or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intents)
+
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
             finish()
             return true
         }
