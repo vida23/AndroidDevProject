@@ -4,31 +4,31 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
-open class BaseFunctionsForAllActivities() : AppCompatActivity(){
+open class BaseFunctionsForAllActivities() : AppCompatActivity() {
 
     var menuItem: MenuItem? = null
-    fun changeMenuItemDependingOnLoginState(item:MenuItem):Boolean{
-        if(LoggedInManager.isLoggedIn){
+    fun changeMenuItemDependingOnLoginState(item: MenuItem): Boolean {
+        if (FirebaseAuth.getInstance().currentUser != null) {
             item.title = getString(R.string.sign_out)
             return true
-
-        }else{
+        } else {
             item.title = getString(R.string.sign_up_or_sign_in)
             return true
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.app_bar_menu,menu)
+        menuInflater.inflate(R.menu.app_bar_menu, menu)
         menuItem = menu!!.getItem(FIRST_VALUE)
         return changeMenuItemDependingOnLoginState(menuItem!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.title == getString(R.string.sign_out)){
-            LoggedInManager.changeLoginState(false)
+        if (item.title == getString(R.string.sign_out)) {
+            FirebaseAuth.getInstance().signOut()
             menuItem!!.title = getString(R.string.sign_up_or_sign_in)
 
             val intent = Intent(applicationContext, MainActivity::class.java)
@@ -38,7 +38,7 @@ open class BaseFunctionsForAllActivities() : AppCompatActivity(){
             finish()
             // Referens:  https://stackoverflow.com/questions/14001963/finish-all-activities-at-a-time
             return true
-        }else {
+        } else {
 
             val intent = Intent(applicationContext, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -52,15 +52,15 @@ open class BaseFunctionsForAllActivities() : AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
-        if(LoggedInManager.isLoggedIn == true && menuItem != null){
+        if (FirebaseAuth.getInstance().currentUser != null && menuItem != null) {
             menuItem!!.title = getString(R.string.sign_out)
-        }else if(menuItem!= null){
+        } else if (menuItem != null) {
             menuItem!!.title = getString(R.string.sign_up_or_sign_in)
         }
 
     }
 
-    companion object{
-        const val FIRST_VALUE  = 0
+    companion object {
+        const val FIRST_VALUE = 0
     }
 }

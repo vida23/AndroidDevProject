@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_programme_year.*
 
 class ProgrammeYearActivity : BaseFunctionsForAllActivities() {
@@ -36,29 +38,25 @@ class ProgrammeYearActivity : BaseFunctionsForAllActivities() {
             startActivity(intent)
         }
 
-        if (LoggedInManager.isLoggedIn == true) {
-            Log.i("SignedIn", "User is signed in")
-        } else {
-            // No user is signed in
-            Log.i("SignedIn", "User is NOT signed in")
-        }
-
     }
 
 
     override fun onBackPressed() {
-        if(LoggedInManager.isLoggedIn && timesBackButtonPressed< maxButtonPressed){
+        Toast.makeText(this, "Tap twice to close the app", Toast.LENGTH_LONG).show()
+        if(FirebaseAuth.getInstance().currentUser !=null  && timesBackButtonPressed< maxButtonPressed){
             timesBackButtonPressed+=1
             //doesn't reset after 2nd sign in
-
+            Log.i("programme", "Times clicker back counter = "+timesBackButtonPressed.toString())
+            if (timesBackButtonPressed >= 3){
+                finishAffinity()
+            }
 
         }else {
-            LoggedInManager.isLoggedIn = false
             super.onBackPressed()
         }
     }
     companion object{
         var timesBackButtonPressed = 0
-        const val maxButtonPressed = 1
+        const val maxButtonPressed = 3
     }
 }

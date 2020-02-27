@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity(){
         lateinit var MAINACTIVITY: Activity
     }
 
-    private lateinit var auth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MAINACTIVITY = this
@@ -35,34 +33,13 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
 
-        ProgrammeYearActivity.timesBackButtonPressed = 0
-
-        if (LoggedInManager.isLoggedIn == true) {
-            Log.i("SignedIn", "User is signed in")
-        } else {
-            // No user is signed in
-            Log.i("SignedIn", "User is NOT signed in")
-        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if(LoggedInManager.isLoggedIn){
-            menuInflater.inflate(R.menu.app_bar_menu,menu)
-            return true
-
-        }else
-            return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.title == getString(R.string.sign_out)){
-            LoggedInManager.changeLoginState(false)
-            item.title = getString(R.string.sign_in)
-            return true
-        }else if(item.title == getString(R.string.sign_in)){
-            startActivity(Intent(this,SignInActivity::class.java))
-            return true
+    override public fun onStart() {
+        super.onStart()
+        //Check if logged in, redirect to "programmeY..."
+        if (FirebaseAuth.getInstance().currentUser != null){
+            startActivity(Intent(this,ProgrammeYearActivity::class.java))
         }
-        return false
     }
 }

@@ -27,10 +27,15 @@
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         />
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_edittext_signup"
         android:hint="@string/password"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -42,12 +47,15 @@
         android:layout_marginEnd="24dp"
         />
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_edittext_signup"
         android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password_edittext_signup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
@@ -78,7 +86,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintTop_toBottomOf="@id/email_edittext_signup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -98,6 +106,7 @@
         app:layout_constraintTop_toBottomOf="@id/programme"
         app:layout_constraintStart_toStartOf="@id/programme"
         />
+
 
 
 

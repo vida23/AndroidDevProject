@@ -1,9 +1,12 @@
 package com.example.dimpguide
 
+import android.provider.ContactsContract
+
 data class User(
     val admin : Boolean = false,
     val username : String,
-    val password: String,
+    val uid: String,
     val year: Int,
-    val program : String
+    val program : String,
+    val email: String
 )

@@ -12,7 +12,9 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.activity_specific_course.view.*
 
 class SignupActivity : AppCompatActivity() {
 
@@ -36,36 +38,49 @@ class SignupActivity : AppCompatActivity() {
             spinnerYears.adapter = spinnerAdapter
         }
 
-        val username = findViewById<EditText>(R.id.username)
-        val password = findViewById<EditText>(R.id.password)
-        val email = findViewById<EditText>(R.id.email)
 
-        /*signUpButton.setOnClickListener {
-            val docRef = DbHandler.db.collection("users").document()
-            val chosenYear: String = year.selectedItem.toString()
-            val chosenYearInt: Int
-            if (chosenYear == "Year 1") {
-                chosenYearInt = YEAR_ONE
-            } else if (chosenYear == "Year 2") {
-                chosenYearInt = YEAR_TWO
-            } else {
-                chosenYearInt = YEAR_THREE
-            }
-            docRef.set(
-                User(
-                    username = username.text.toString(),
-                    password = password.text.toString(),
-                    year = chosenYearInt,
-                    program = programme.selectedItem.toString()
-                )
-            )
-                .addOnSuccessListener {
-                    val intent = Intent(this, ProgrammeYearActivity::class.java)
+        signUpButton.setOnClickListener {
+            val password = password_edittext_signup.text.toString()
+            val email = email_edittext_signup.text.toString()
+
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (!task.isSuccessful) return@addOnCompleteListener
+                    val docRef = DbHandler.db.collection("users").document()
+                    val chosenYear: String = year.selectedItem.toString()
+                    val chosenYearInt: Int
+                    if (chosenYear == "Year 1") {
+                        chosenYearInt = YEAR_ONE
+                    } else if (chosenYear == "Year 2") {
+                        chosenYearInt = YEAR_TWO
+                    } else {
+                        chosenYearInt = YEAR_THREE
+                    }
+                    docRef.set(
+                        User(
+                            username = username.text.toString(),
+                            uid = FirebaseAuth.getInstance().currentUser!!.uid,
+                            year = chosenYearInt,
+                            program = programme.selectedItem.toString(),
+                            email = email_edittext_signup.text.toString()
+                        )
+                    )
+                        .addOnSuccessListener {
+                            val intent = Intent(this, ProgrammeYearActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-                    LoggedInManager.changeLoginState(state = true)
                     finish()
                 }
+                .addOnFailureListener {
+                    Log.d("signup", "Failed to create:${it.message}")
+
+                }
         }
+
         username.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 signUpButton.isEnabled = false
@@ -82,12 +97,15 @@ class SignupActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (password.text.length < MIN_PASSWORD_LENGTH || !email.text.contains("@")) {
+                if (password_edittext_signup.text.length < MIN_PASSWORD_LENGTH || !email_edittext_signup.text.contains(
+                        "@"
+                    )
+                ) {
                     signUpButton.isEnabled = false
                 }
             }
         })
-        password.addTextChangedListener(object : TextWatcher {
+        password_edittext_signup.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 signUpButton.isEnabled = false
             }
@@ -103,12 +121,15 @@ class SignupActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (username.text.length < MIN_USERNAME_LENGTH || !email.text.contains("@")) {
+                if (username.text.length < MIN_USERNAME_LENGTH || !email_edittext_signup.text.contains(
+                        "@"
+                    )
+                ) {
                     signUpButton.isEnabled = false
                 }
             }
         })
-        email.addTextChangedListener(object : TextWatcher {
+        email_edittext_signup.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 signUpButton.isEnabled = false
             }
@@ -125,15 +146,11 @@ class SignupActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (username.text.length < MIN_USERNAME_LENGTH || password.text.length < MIN_PASSWORD_LENGTH) {
+                if (username.text.length < MIN_USERNAME_LENGTH || password_edittext_signup.text.length < MIN_PASSWORD_LENGTH) {
                     signUpButton.isEnabled = false
                 }
             }
-        })*/
-    }
-
-    private fun createAccount() {
-
+        })
     }
 
     companion object Companion {
