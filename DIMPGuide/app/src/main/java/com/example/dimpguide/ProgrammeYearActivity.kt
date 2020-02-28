@@ -43,12 +43,13 @@ class ProgrammeYearActivity : BaseFunctionsForAllActivities() {
 
     override fun onBackPressed() {
         Toast.makeText(this, "Tap twice to close the app", Toast.LENGTH_LONG).show()
-        if(FirebaseAuth.getInstance().currentUser !=null  && timesBackButtonPressed< maxButtonPressed){
+        if(DbHandler.fUser !=null  && timesBackButtonPressed< maxButtonPressed){
             timesBackButtonPressed+=1
             //doesn't reset after 2nd sign in
             Log.i("programme", "Times clicker back counter = "+timesBackButtonPressed.toString())
             if (timesBackButtonPressed >= 3){
                 finishAffinity()
+                timesBackButtonPressed = 0
             }
 
         }else {

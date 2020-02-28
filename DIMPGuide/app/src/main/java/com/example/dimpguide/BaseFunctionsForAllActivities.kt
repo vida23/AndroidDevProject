@@ -52,7 +52,7 @@ open class BaseFunctionsForAllActivities() : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (FirebaseAuth.getInstance().currentUser != null && menuItem != null) {
+        if (DbHandler.fUser != null && menuItem != null) {
             menuItem!!.title = getString(R.string.sign_out)
         } else if (menuItem != null) {
             menuItem!!.title = getString(R.string.sign_up_or_sign_in)
