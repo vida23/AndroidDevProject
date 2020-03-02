@@ -1,13 +1,14 @@
 package com.example.dimpguide
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_programme_year.*
+
 
 class ProgrammeYearActivity : AppCompatActivity() {
 
@@ -16,23 +17,30 @@ class ProgrammeYearActivity : AppCompatActivity() {
         setContentView(R.layout.activity_programme_year)
         val programs = resources.getStringArray(R.array.Programmes)
         val spinner = findViewById<Spinner>(R.id.chooseProgramme)
+
         if(spinner != null){
             val spinnerAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,programs)
             spinner.adapter = spinnerAdapter
         }
         yearOneButton.setOnClickListener {
             val intent = Intent(this,CoursesActivity::class.java)
-            intent.putExtra("Year","yearOne")
+            val chosenProgram = spinner.selectedItem.toString()
+            intent.putExtra("Program", chosenProgram)
+            intent.putExtra("Year","1")
             startActivity(intent)
         }
         yearTwoButton.setOnClickListener {
             val intent = Intent(this,CoursesActivity::class.java)
-            intent.putExtra("Year","yearTwo")
+            val chosenProgram = spinner.selectedItem.toString()
+            intent.putExtra("Program", chosenProgram)
+            intent.putExtra("Year","2")
             startActivity(intent)
         }
         yearThreeButton.setOnClickListener {
             val intent = Intent(this,CoursesActivity::class.java)
-            intent.putExtra("Year","yearThree")
+            val chosenProgram = spinner.selectedItem.toString()
+            intent.putExtra("Program", chosenProgram)
+            intent.putExtra("Year","3")
             startActivity(intent)
         }
 
