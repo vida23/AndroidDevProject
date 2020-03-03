@@ -5,7 +5,8 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context = ".GoodToKnowActivity">
 
     <Button
         android:id="@+id/button"
@@ -21,7 +22,6 @@
         android:id="@+id/preknowledgeView"
         android:layout_width="275dp"
         android:layout_height="423dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

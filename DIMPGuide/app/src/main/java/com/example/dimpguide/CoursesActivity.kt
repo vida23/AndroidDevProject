@@ -1,4 +1,5 @@
 package com.example.dimpguide
+import android.app.DownloadManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,8 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dimpguide.DbHandler.Companion.db
+import com.google.firebase.firestore.Query
+
 import kotlin.math.log
 
 class CoursesActivity : AppCompatActivity() {
@@ -27,6 +30,8 @@ class CoursesActivity : AppCompatActivity() {
         db.collection("courses")
             .whereIn("pro", listOf("dimp", chosenProgram)) //field is either program or dimp
             .whereEqualTo("year", chosenYear)
+            .orderBy("period", Query.Direction.ASCENDING)
+
             .get()
             .addOnSuccessListener { documents ->
                 var matchingCourses: String
@@ -58,7 +63,7 @@ class CoursesActivity : AppCompatActivity() {
                         val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 2")
                         dataset.add(studyPeriod)
                         LOOP_VARIABLE = 0
-                    }
+                    }/*
                     else if ((document.getString("period")) == "3") {
 
                         if (LOOP_VARIABLE == 0) {
@@ -71,8 +76,8 @@ class CoursesActivity : AppCompatActivity() {
                         dataset.add(studyPeriod)
                         LOOP_VARIABLE = 0
 
-                    }
-                    else ((document.getString("period")) == "4")
+                    }*/
+                    else if ((document.getString("period")) == "4")
 
                     if(LOOP_VARIABLE == 0){
                         FIRST_COURSE = (document.getString("name")).toString()

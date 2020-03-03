@@ -39,7 +39,7 @@ class Specific_course : AppCompatActivity() {
 
         findViewById<Button>(R.id.GoodToKnowButton)
             .setOnClickListener {
-                intent.putExtra("name",name)
+                intent.putExtra("name", name)
                 startActivity(Intent(this,GoodToKnowActivity::class.java))
             }
     }
