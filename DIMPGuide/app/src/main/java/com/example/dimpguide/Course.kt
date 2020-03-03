@@ -7,5 +7,6 @@ data class Course(
     val course_preknowledge: String,
     val course_program: String,
     val course_year: String,    //Indicating the year in which the course is taught
-    val course_description: String
+    val course_description: String,
+    val course_avgRate: Int
 )

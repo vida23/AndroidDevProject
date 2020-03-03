@@ -3,10 +3,12 @@ package com.example.dimpguide
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import com.example.dimpguide.DbHandler.Companion.db
 
 class Specific_course : AppCompatActivity() {
 
@@ -17,26 +19,29 @@ class Specific_course : AppCompatActivity() {
         findViewById<TextView>(R.id.Course).apply{
             this.text = name
         }
+
         findViewById<Button>(R.id.CourseMaterialButton)
             .setOnClickListener {
-            val intent = Intent(this,CourseMaterialActivity::class.java)
-            //Shall put id from the database here when valid
-            startActivity(intent)
-        }
+                val intent = Intent(this,CourseMaterialActivity::class.java)
+                //Shall put id from the database here when valid
+                startActivity(intent)
+            }
 
         findViewById<Button>(R.id.FAQButton)
             .setOnClickListener {
                 startActivity(Intent(this,FAQActivity::class.java))
             }
+
         findViewById<Button>(R.id.AskButton)
             .setOnClickListener {
                 startActivity(Intent(this,AskActivity::class.java))
             }
+
         findViewById<Button>(R.id.GoodToKnowButton)
             .setOnClickListener {
+                intent.putExtra("name",name)
                 startActivity(Intent(this,GoodToKnowActivity::class.java))
             }
-
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if(LoggedInManager.isLoggedIn){

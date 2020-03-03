@@ -38,4 +38,5 @@
     <string name="toShortPassword">För kort lösenord</string>
     <string name="toShortUsername">För kort Användarnamn</string>
     <string name="sign_out">Logga ut</string>
+    <string name="back_to_course">Tillbaka till kursen</string>
 </resources>

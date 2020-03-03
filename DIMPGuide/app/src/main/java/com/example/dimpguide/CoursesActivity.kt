@@ -19,19 +19,9 @@ class CoursesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_courses)
 
-        val dataset:MutableList<StudyPeriod> = ArrayList()
-        dataset.add(StudyPeriod("Diskret Matematik","Objektorienterad mjukvaruutveckling med designmönster","Augusti"))
-        dataset.add(StudyPeriod("Linjär ALgebra", "Introduktion Till programmejring","Oktober"))
-        dataset.add(StudyPeriod("Diskret Matematik","Datateknisk Introduktionskurs","Augusti"))
-        dataset.add(StudyPeriod("Linjär ALgebra", "Introduktion Till programmejring","Oktober"))
-
-
-        /////////////////////////////////////////////////////////////////////////////////////////
-/*
         val intent = intent
         val chosenProgram = intent.getStringExtra("Program")
         val chosenYear = intent.getStringExtra("Year")
-
         val dataset:MutableList<StudyPeriod> = ArrayList()
 
         db.collection("courses")
@@ -40,37 +30,79 @@ class CoursesActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 var matchingCourses: String
-                for (document in documents) {
-                    if ((document.getString("period"))=="1") {
 
+                for (document in documents) {
+                    if ((document.getString("period")) == "1") {
+
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            LOOP_VARIABLE += 1
+                            continue
+                        }
                         matchingCourses = (document.getString("name")).toString()
-                        dataset.add(StudyPeriod(matchingCourses, matchingCourses, "period 1"))
-                        Log.d("look", matchingCourses) //funkar enligt loggen??
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 1")
+                        dataset.add(studyPeriod)
+                        Log.d("SP", studyPeriod.course1)
+                        Log.d("SP", studyPeriod.course2)
+
+                        LOOP_VARIABLE = 0
+                    }
+                    else if ((document.getString("period")) == "2") {
+
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            LOOP_VARIABLE += 1
+                            continue
+                        }
+                        matchingCourses = (document.getString("name")).toString()
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 2")
+                        dataset.add(studyPeriod)
+                        LOOP_VARIABLE = 0
+                    }
+                    else if ((document.getString("period")) == "3") {
+
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            LOOP_VARIABLE += 1
+                            continue
+                        }
+                        matchingCourses = (document.getString("name")).toString()
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 3")
+                        dataset.add(studyPeriod)
+                        LOOP_VARIABLE = 0
 
                     }
+                    else ((document.getString("period")) == "4")
+
+                    if(LOOP_VARIABLE == 0){
+                        FIRST_COURSE = (document.getString("name")).toString()
+                        LOOP_VARIABLE+=1
+                        continue
+                    }
+                    matchingCourses = (document.getString("name")).toString()
+                    val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 4")
+                    dataset.add(studyPeriod)
+                    LOOP_VARIABLE = 0
+
+
+                }
+                viewManager = LinearLayoutManager(this)
+                Log.d("dataset",dataset[0].course1)
+                viewAdapter = CourseRecyclerViewAdapter(dataset,this)
+
+                coursesRecyclerView = findViewById<RecyclerView>(R.id.coursesRecyclerView).apply{
+                    setHasFixedSize(true)
+
+                    layoutManager = viewManager
+
+                    adapter = viewAdapter
                 }
             }
             .addOnFailureListener { exception ->
-                Log.w("didnt find", "Error getting documents: ", exception)
+                Log.w("Could not find", "Error getting documents: ", exception)
             }
-
-*/
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = CourseRecyclerViewAdapter(dataset,this)
-
-        coursesRecyclerView = findViewById<RecyclerView>(R.id.coursesRecyclerView).apply{
-            setHasFixedSize(true)
-
-            layoutManager = viewManager
-
-            adapter = viewAdapter
-        }
-
-
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if(LoggedInManager.isLoggedIn){
             menuInflater.inflate(R.menu.app_bar_menu,menu)
@@ -90,5 +122,9 @@ class CoursesActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+    companion object {
+        var LOOP_VARIABLE = 0
+        lateinit var FIRST_COURSE:String
     }
 }

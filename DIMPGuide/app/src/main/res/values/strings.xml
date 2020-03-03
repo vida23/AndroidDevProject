@@ -37,4 +37,5 @@
     <string name="toShortUsername">To short username</string>
     <string name="toShortPassword">To short password</string>
     <string name="emailErrorNoAt">You need valid e-mail (@)</string>
+    <string name="back_to_course">Back to course</string>
 </resources>

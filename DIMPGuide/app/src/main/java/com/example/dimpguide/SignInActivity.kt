@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.dimpguide.DbHandler.Companion.db
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class SignInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
 
         signInButton.setOnClickListener {
-            val docRef = DbHandler.db.collection("users")
+            val docRef = db.collection("users")
             docRef.whereEqualTo("username", username.text.toString())
                 .whereEqualTo("password", password.text.toString()).limit(1)
                 .get()
