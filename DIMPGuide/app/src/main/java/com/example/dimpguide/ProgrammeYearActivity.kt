@@ -8,12 +8,25 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_programme_year.*
+import android.R
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import androidx.core.content.ContextCompat.getSystemService
+import android.view.LayoutInflater
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
-class ProgrammeYearActivity : BaseFunctionsForAllActivities() {
+
+
+class ProgrammeYearActivity : ActingMainActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_programme_year)
+        val inflater = this
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val contentView = inflater.inflate(R.layout.help, null, false)
+        mDrawer.addView(contentView, 0)
 
         val programs = resources.getStringArray(R.array.Programmes)
         val spinner = findViewById<Spinner>(R.id.chooseProgramme)
