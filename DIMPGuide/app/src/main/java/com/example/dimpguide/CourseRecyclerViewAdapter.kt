@@ -3,21 +3,19 @@ package com.example.dimpguide
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val context: Context) :
+class CourseRecyclerViewAdapter(private val dataset: MutableList<StudyPeriod>, private val context: Context) :
        RecyclerView.Adapter<CourseRecyclerViewAdapter.MyViewHolder>(){
 
 
     class MyViewHolder(v:View) :RecyclerView.ViewHolder(v) , View.OnClickListener {
         private var view : View = v
-        private var course: Course? = null
+        private var studyPeriod: StudyPeriod? = null
 
         init {
             v.setOnClickListener(this)
@@ -27,20 +25,22 @@ class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val 
            Log.d("RecyclerView","Click")
         }
 
-        fun bindCourse(course: Course, context: Context){
-            this.course = course
-            view.course1.text = course.course1
-            view.course2.text = course.course2
-            view.month.text = course.month
+        fun bindCourse(studyPeriod: StudyPeriod, context: Context){
+            this.studyPeriod = studyPeriod
+            view.course1.text = studyPeriod.course1
+            view.course2.text = studyPeriod.course2
+            view.period.text = studyPeriod.period
 
             view.course1.setOnClickListener {
                 val intent = Intent(context,Specific_course::class.java)
-                intent.putExtra("name",course.course1)
+                intent.putExtra("name",studyPeriod.course1)
+                intent.putExtra("course_id",studyPeriod.course1_id)
                 startActivity(context,intent,null)
             }
             view.course2.setOnClickListener {
                 val intent = Intent(context,Specific_course::class.java)
-                intent.putExtra("name",course.course2)
+                intent.putExtra("name",studyPeriod.course2)
+                intent.putExtra("course_id",studyPeriod.course2_id)
                 startActivity(context,intent,null)
             }
 
@@ -59,12 +59,12 @@ class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val 
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-            val itemCourses = Dataset[position]
+            val itemCourses = dataset[position]
             holder.bindCourse(itemCourses,context)
         }
 
         override fun getItemCount(): Int {
-            return Dataset.size
+            return dataset.size
         }
 
 }

@@ -39,4 +39,5 @@
     <string name="toShortUsername">För kort Användarnamn</string>
     <string name="sign_out">Logga ut</string>
     <string name="sign_up_or_sign_in">Logga in/Skapa Konto</string>
+    <string name="back_to_course">Tillbaka till kursen</string>
 </resources>
