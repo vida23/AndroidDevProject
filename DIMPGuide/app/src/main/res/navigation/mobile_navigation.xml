@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.dimpguide.ui.home.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_programme"
+        android:name="com.example.dimpguide.ui.home.fragments.ProgrammeFragment"
+        android:label="@string/menu_programme"
+        tools:layout="@layout/programme_fragment" >
+        <action
+            android:id="@+id/action_nav_programme_to_coursesFragment"
+            app:destination="@id/coursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="com.example.dimpguide.ui.home.Courses.CoursesFragment"
+        android:label="courses_fragment"
+        tools:layout="@layout/courses_fragment" >
+        <action
+            android:id="@+id/action_coursesFragment_to_specificCourseFragment"
+            app:destination="@id/specificCourseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificCourseFragment"
+        android:name="com.example.dimpguide.ui.home.fragments.SpecificCourseFragment"
+        android:label="specific_course_fragment"
+        tools:layout="@layout/specific_course_fragment" >
+        <action
+            android:id="@+id/action_specificCourseFragment_to_courseMaterialFragment"
+            app:destination="@id/courseMaterialFragment" />
+        <action
+            android:id="@+id/action_specificCourseFragment_to_askFragment"
+            app:destination="@id/askFragment" />
+        <action
+            android:id="@+id/action_specificCourseFragment_to_FAQFragment"
+            app:destination="@id/FAQFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseMaterialFragment"
+        android:name="com.example.dimpguide.ui.home.courseMaterial.CourseMaterialFragment"
+        android:label="course_material_fragment"
+        tools:layout="@layout/course_material_fragment" />
+    <fragment
+        android:id="@+id/askFragment"
+        android:name="com.example.dimpguide.ui.home.fragments.AskFragment"
+        android:label="fragment_ask"
+        tools:layout="@layout/fragment_ask" />
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="com.example.dimpguide.ui.home.questions.FAQFragment"
+        android:label="faq_fragment"
+        tools:layout="@layout/faq_fragment" />
+    <fragment
+        android:id="@+id/signOutFragment"
+        android:name="com.example.dimpguide.ui.home.fragments.SignOutFragment"
+        android:label="SignOutFragmentNew" />
+
+</navigation>

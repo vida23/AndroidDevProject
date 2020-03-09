@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoodToKnowActivity"></activity>
+        <activity
+            android:name=".ActingMainActivity"
+            android:label="@string/title_activity_acting_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".GoodToKnowActivity" />
         <activity android:name=".AskActivity" />
         <activity android:name=".FAQActivity" />
         <activity android:name=".CourseMaterialActivity" />

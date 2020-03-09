@@ -10,10 +10,20 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_programme_year.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_programme_year.*
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import androidx.core.content.ContextCompat.getSystemService
+import android.view.LayoutInflater
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 
-class ProgrammeYearActivity : AppCompatActivity() {
+
+
+
+class ProgrammeYearActivity : AppCompatActivity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
