@@ -25,23 +25,22 @@ class GoodToKnowActivity : AppCompatActivity() {
 
 
         val docRef = db.collection("courses").document(course_id)
-            docRef.get()
-                .addOnSuccessListener { document ->
-                    if (document != null){
-                        findViewById<TextView>(R.id.goodToKnowTextView).apply {
-                            this.text = document.get("pre").toString()
-                        }
-
-                        Log.d("docs", document.get("pre").toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null){
+                    findViewById<TextView>(R.id.goodToKnowTextView).apply {
+                        this.text = document.get("pre").toString()
                     }
-                    else{
-                        Log.d("docs", "Cant find document")
-                    }
-                }
-                .addOnFailureListener{ exception ->
-                    Log.d("docs", "failed to fetch data", exception)
-                }
 
+                    Log.d("docs", document.get("pre").toString())
+                }
+                else{
+                    Log.d("docs", "Cant find document")
+                }
+            }
+            .addOnFailureListener{ exception ->
+                Log.d("docs", "failed to fetch data", exception)
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

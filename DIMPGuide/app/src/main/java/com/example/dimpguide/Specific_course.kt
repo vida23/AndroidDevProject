@@ -22,7 +22,6 @@ class Specific_course : AppCompatActivity() {
         }
 
 
-
         findViewById<Button>(R.id.CourseMaterialButton)
             .setOnClickListener {
                 val intent = Intent(this,CourseMaterialActivity::class.java)

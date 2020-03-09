@@ -29,6 +29,7 @@ class AskActivity : AppCompatActivity() {
             db.collection("FAQ")
                 .add(questionData)
             startActivity(Intent(this, Specific_course::class.java))
+            Toast.makeText(this,"Your question has been submitted!", Toast.LENGTH_LONG).show()
         }
 
 
@@ -79,6 +80,7 @@ class AskActivity : AppCompatActivity() {
 
         })
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if(LoggedInManager.isLoggedIn){
             menuInflater.inflate(R.menu.app_bar_menu,menu)
