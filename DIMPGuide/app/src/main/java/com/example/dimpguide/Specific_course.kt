@@ -21,6 +21,8 @@ class Specific_course : AppCompatActivity() {
             this.text = name
         }
 
+
+
         findViewById<Button>(R.id.CourseMaterialButton)
             .setOnClickListener {
                 val intent = Intent(this,CourseMaterialActivity::class.java)
@@ -40,9 +42,11 @@ class Specific_course : AppCompatActivity() {
 
         findViewById<Button>(R.id.GoodToKnowButton)
             .setOnClickListener {
-                intent.putExtra("name", name)
-                intent.putExtra("course_id", course_id)
-                startActivity(Intent(this,GoodToKnowActivity::class.java))
+                Log.d("THIS",course_id)
+                startActivity(Intent(this,GoodToKnowActivity::class.java).apply {
+                    putExtra("name", name);
+                    putExtra("course_id", course_id)
+                })
             }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

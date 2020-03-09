@@ -34,8 +34,6 @@ class CoursesActivity : AppCompatActivity() {
             chosenProgram = "Inbyggda system"
         }
 
-        Log.i("docs", chosenProgram)
-        Log.i("docs", chosenYear)
 
         db.collection("courses")
             .whereIn("pro", listOf("dimp", chosenProgram)) //field is either program or dimp
@@ -49,76 +47,61 @@ class CoursesActivity : AppCompatActivity() {
 
                         if (LOOP_VARIABLE == 0) {
                             FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
                             LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
-                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 1", course1_id = document.id, course2_id = document.id)
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 1", FIRST_COURSE_ID, course2_id = document.id)
                         dataset.add(studyPeriod)
-                        Log.d("SP", studyPeriod.course1)
-
-                        Log.d("SP", studyPeriod.course2)
-                        Log.d("SP", studyPeriod.course1_id)
-                        Log.d("SP", studyPeriod.course2_id)
-
 
                         LOOP_VARIABLE = 0
+
                     } else if (document.getLong("period") == 2.toLong()) {
 
                         if (LOOP_VARIABLE == 0) {
                             FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
                             LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
-                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 2",course1_id = document.id, course2_id = document.id)
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 2", FIRST_COURSE_ID, course2_id = document.id)
                         dataset.add(studyPeriod)
 
-                        Log.d("SP", studyPeriod.course1)
-                        Log.d("SP", studyPeriod.course2)
-                        Log.d("SP", studyPeriod.course1_id)
-                        Log.d("SP", studyPeriod.course2_id)
-
                         LOOP_VARIABLE = 0
+
                     } else if (document.getLong("period") == 3.toLong()) {
 
                         if (LOOP_VARIABLE == 0) {
                             FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
                             LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
-                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 3",course1_id = document.id, course2_id = document.id)
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 3", FIRST_COURSE_ID, course2_id = document.id)
                         dataset.add(studyPeriod)
-
-                        Log.d("SP", studyPeriod.course1)
-                        Log.d("SP", studyPeriod.course2)
-                        Log.d("SP", studyPeriod.course1_id)
-                        Log.d("SP", studyPeriod.course2_id)
 
                         LOOP_VARIABLE = 0
 
-                    } else if(document.getLong("period") == 4.toLong())
+                    } else if(document.getLong("period") == 4.toLong()) {
 
                         if (LOOP_VARIABLE == 0) {
                             FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
                             LOOP_VARIABLE += 1
                             continue
                         }
-                    matchingCourses = (document.getString("name")).toString()
-                    val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 4",course1_id = document.id, course2_id = document.id)
-                    dataset.add(studyPeriod)
+                        matchingCourses = (document.getString("name")).toString()
+                        val studyPeriod = StudyPeriod(FIRST_COURSE, matchingCourses, "Period 4", FIRST_COURSE_ID, course2_id = document.id)
+                        dataset.add(studyPeriod)
 
-                    Log.d("SP", studyPeriod.course1)
-                    Log.d("SP", studyPeriod.course2)
-                    Log.d("SP", studyPeriod.course1_id)
-                    Log.d("SP", studyPeriod.course2_id)
-
-                    LOOP_VARIABLE = 0
+                        LOOP_VARIABLE = 0
+                    }
 
                 }
                 viewManager = LinearLayoutManager(this)
-                Log.d("dataset", dataset.toString())
                 viewAdapter = CourseRecyclerViewAdapter(dataset, this)
 
                 coursesRecyclerView = findViewById<RecyclerView>(R.id.coursesRecyclerView).apply {
@@ -130,11 +113,9 @@ class CoursesActivity : AppCompatActivity() {
                 }
             }
 
-
             .addOnFailureListener { exception ->
                 Log.w("Could not find", "Error getting documents: ", exception)
             }
-
     }
 
 
@@ -162,5 +143,6 @@ class CoursesActivity : AppCompatActivity() {
     companion object {
         var LOOP_VARIABLE = 0
         lateinit var FIRST_COURSE: String
+        lateinit var FIRST_COURSE_ID: String
     }
 }
