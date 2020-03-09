@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.fragments.SpecificCourseFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Specific_course">
+
+        <TextView
+            android:id="@+id/Course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@id/CourseRatingBar"
+            app:layout_constraintEnd_toEndOf="@id/CourseRatingBar"
+            app:layout_constraintStart_toStartOf="@id/CourseRatingBar" />
+
+        <RatingBar
+            android:id="@+id/CourseRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="@id/CourseMaterialButton"
+            app:layout_constraintEnd_toEndOf="@id/CourseMaterialButton"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Rating"
+            app:layout_constraintStart_toStartOf="@id/CourseRatingBar"
+            app:layout_constraintEnd_toEndOf="@id/CourseRatingBar"
+            app:layout_constraintTop_toBottomOf="@id/CourseRatingBar" />
+
+        <Button
+            android:id="@+id/CourseMaterialButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/CourseMaterial"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"/>
+        <Button
+            android:id="@+id/GoodToKnowButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/GoodToKnow"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/CourseMaterialButton"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="404dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/GoodToKnowButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/FAQButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:text="FAQ" />
+            <Button
+                android:id="@+id/AskButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:text="Ask" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -3,12 +3,17 @@ package com.example.dimpguide
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.navigation.findNavController
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
+
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dimpguide.ui.home.home.HomeFragment
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
 class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val context: Context) :
@@ -34,14 +39,17 @@ class CourseRecyclerViewAdapter(private val Dataset: Array<Course>, private val 
             view.month.text = course.month
 
             view.course1.setOnClickListener {
-                val intent = Intent(context,Specific_course::class.java)
+                view.findNavController().navigate(R.id.specificCourseFragment)
+                /*val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",course.course1)
-                startActivity(context,intent,null)
+                startActivity(context,intent,null)*/
             }
             view.course2.setOnClickListener {
-                val intent = Intent(context,Specific_course::class.java)
+                view.findNavController().navigate(R.id.specificCourseFragment)
+
+                /*val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",course.course2)
-                startActivity(context,intent,null)
+                startActivity(context,intent,null)*/
             }
 
         }
