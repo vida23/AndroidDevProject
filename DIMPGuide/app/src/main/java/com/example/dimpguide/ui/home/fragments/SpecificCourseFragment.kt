@@ -31,7 +31,7 @@ class SpecificCourseFragment : Fragment() {
 
         root.findViewById<Button>(R.id.FAQButton)
             .setOnClickListener {
-                findNavController().navigate(R.id.courseMaterialFragment)
+                findNavController().navigate(R.id.FAQFragment)
             }
         root.findViewById<Button>(R.id.AskButton)
             .setOnClickListener {

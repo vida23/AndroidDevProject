@@ -11,9 +11,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 
 open class ActingMainActivity : AppCompatActivity() {
 
@@ -34,10 +31,9 @@ open class ActingMainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home ,R.id.nav_programme, R.id.coursesFragment, R.id.specificCourseFragment
+                R.id.nav_home ,R.id.nav_programme, R.id.coursesFragment, R.id.specificCourseFragment, R.id.signOutFragment
             ), drawerLayout
         )
-
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

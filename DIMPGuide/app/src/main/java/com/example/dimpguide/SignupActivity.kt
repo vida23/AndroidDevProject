@@ -66,12 +66,12 @@ class SignupActivity : AppCompatActivity() {
                         )
                     )
                         .addOnSuccessListener {
-                            val intent = Intent(this, ProgrammeYearActivity::class.java)
+                            val intent = Intent(this, ActingMainActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
 
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, ActingMainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

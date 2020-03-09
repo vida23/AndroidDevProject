@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_specificCourseFragment_to_askFragment"
             app:destination="@id/askFragment" />
+        <action
+            android:id="@+id/action_specificCourseFragment_to_FAQFragment"
+            app:destination="@id/FAQFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseMaterialFragment"
@@ -50,5 +53,14 @@
         android:name="com.example.dimpguide.ui.home.fragments.AskFragment"
         android:label="fragment_ask"
         tools:layout="@layout/fragment_ask" />
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="com.example.dimpguide.ui.home.questions.FAQFragment"
+        android:label="faq_fragment"
+        tools:layout="@layout/faq_fragment" />
+    <fragment
+        android:id="@+id/signOutFragment"
+        android:name="com.example.dimpguide.ui.home.fragments.SignOutFragment"
+        android:label="SignOutFragmentNew" />
 
 </navigation>
