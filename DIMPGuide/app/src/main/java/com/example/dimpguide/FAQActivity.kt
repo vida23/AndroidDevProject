@@ -3,10 +3,12 @@ package com.example.dimpguide
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dimpguide.DbHandler.Companion.db
 
 class FAQActivity : AppCompatActivity() {
 
@@ -17,24 +19,41 @@ class FAQActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_faq)
 
-        val dataset:Array<FAQ> = arrayOf(FAQ("TELL ME WHY","NICOLAS CAGEfhdghdgfgfgfgfsg fdsfdsgsg d dfgfd hgfdgdf gd g fdgdf gfd gfd gfd g"),
-            FAQ("WHY AM I HERE","Because nice")
-        )
+        val dataset: MutableList<FAQ> = ArrayList()
 
-        viewManager = LinearLayoutManager(this)
+        db.collection("FAQ")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents){
+                    if(document.getString("answer")!= null) {
+                        val faq = FAQ(
+                            document.getString("question").toString(),
+                            document.getString("answer").toString()
+                        )
+                        dataset.add(faq)
+                    }
+                }
 
-        viewAdapter = FAQRecyclerViewAdapter(dataset,this)
-
-        findViewById<RecyclerView>(R.id.FAQRecyclerView).apply{
-            setHasFixedSize(true)
-
-            layoutManager = viewManager
-
-            adapter = viewAdapter
+                viewManager = LinearLayoutManager(this)
+                viewAdapter = FAQRecyclerViewAdapter(dataset,this)
 
 
-        }
+                findViewById<RecyclerView>(R.id.FAQRecyclerView).apply{
+                    setHasFixedSize(true)
+
+                    layoutManager = viewManager
+
+                    adapter = viewAdapter
+                }
+
+            }
+            .addOnFailureListener {exception ->
+                Log.w("Cannot find file", "Error getting document", exception)
+
+            }
     }
+
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if(LoggedInManager.isLoggedIn){
             menuInflater.inflate(R.menu.app_bar_menu,menu)

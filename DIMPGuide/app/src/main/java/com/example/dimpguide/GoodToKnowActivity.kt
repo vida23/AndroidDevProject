@@ -24,7 +24,6 @@ class GoodToKnowActivity : AppCompatActivity() {
         }
 
 
-
         val docRef = db.collection("courses").document(course_id)
             docRef.get()
                 .addOnSuccessListener { document ->

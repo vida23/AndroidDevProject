@@ -8,12 +8,13 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.faq_recycler_view_item.view.*
 
-class FAQRecyclerViewAdapter(private val dataset: Array<FAQ>,private val context: Context) : RecyclerView.Adapter<FAQRecyclerViewAdapter.FAQViewHolder>(){
+class FAQRecyclerViewAdapter(private val dataset: MutableList<FAQ>,private val context: Context) : RecyclerView.Adapter<FAQRecyclerViewAdapter.FAQViewHolder>(){
 
 
     class FAQViewHolder(v: View): RecyclerView.ViewHolder(v){
         private var view : View = v
         private var isAnswerShowing : Boolean = true
+
         fun bindFAQ(FAQ: FAQ,context: Context){
             if(isAnswerShowing == true){
                 view.Answer.visibility = View.INVISIBLE
