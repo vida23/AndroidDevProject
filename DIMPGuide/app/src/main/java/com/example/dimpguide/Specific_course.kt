@@ -16,6 +16,7 @@ class Specific_course : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_specific_course)
         val name = intent.getStringExtra("name")
+        val course_id = intent.getStringExtra("course_id")
         findViewById<TextView>(R.id.Course).apply{
             this.text = name
         }
@@ -40,6 +41,7 @@ class Specific_course : AppCompatActivity() {
         findViewById<Button>(R.id.GoodToKnowButton)
             .setOnClickListener {
                 intent.putExtra("name", name)
+                intent.putExtra("course_id", course_id)
                 startActivity(Intent(this,GoodToKnowActivity::class.java))
             }
     }

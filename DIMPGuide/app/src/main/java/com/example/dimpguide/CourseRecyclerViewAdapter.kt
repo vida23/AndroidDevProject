@@ -34,11 +34,13 @@ class CourseRecyclerViewAdapter(private val dataset: MutableList<StudyPeriod>, p
             view.course1.setOnClickListener {
                 val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",studyPeriod.course1)
+                intent.putExtra("course_id",studyPeriod.course1_id)
                 startActivity(context,intent,null)
             }
             view.course2.setOnClickListener {
                 val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",studyPeriod.course2)
+                intent.putExtra("course_id",studyPeriod.course2_id)
                 startActivity(context,intent,null)
             }
 

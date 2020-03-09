@@ -15,7 +15,7 @@
     <string name="Year3">Year 3</string>
     <string-array name="Programmes">
         <item>Software Development</item>
-        <item>Built in system</item>
+        <item>Embedded Systems</item>
     </string-array>
     <string-array name="Years">
         <item>Year 1</item>
