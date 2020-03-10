@@ -52,8 +52,9 @@ class SpecificCourseFragment : Fragment() {
                 if (document != null) {
 
                     givenRate.rating = document.getLong("avgRate")!!.toFloat()
-                  Log.d("stars", document.getLong("avgRate").toString())
-                    if (FirebaseAuth.getInstance().currentUser != null && document.getString("userUids").toString().contains(FirebaseAuth.getInstance().currentUser!!.uid) == true) {
+                    Log.d("stars", document.getLong("avgRate").toString())
+                    if (FirebaseAuth.getInstance().currentUser != null && document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid) == false) {
+                        Log.d("this", document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid).toString())
 
                         rateSubmitButton.setOnClickListener {
 
@@ -64,7 +65,8 @@ class SpecificCourseFragment : Fragment() {
                                 document.getLong("totalRating")!! + givenRate.rating.toLong()
                             docRef.update("totalRating", totalRating)
 
-                            val updateUids = document.getString("uids")!! + FirebaseAuth.getInstance().currentUser!!.uid +", "
+                            val updateUids =
+                                document.getString("uids")!! + FirebaseAuth.getInstance().currentUser!!.uid + ", "
                             docRef.update("uids", updateUids)
 
                             avgRating = totalRating / ratingCount
