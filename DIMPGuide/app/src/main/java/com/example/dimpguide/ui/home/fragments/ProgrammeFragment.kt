@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -18,11 +19,13 @@ import com.example.dimpguide.CoursesActivity
 
 import com.example.dimpguide.R
 import com.example.dimpguide.ui.home.home.HomeFragment
+import kotlinx.android.synthetic.main.programme_fragment.*
 import kotlinx.android.synthetic.main.programme_fragment.view.*
 
 class ProgrammeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var myContext: Context
+    private lateinit var spinner: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +34,7 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
         val root = inflater.inflate(R.layout.activity_programme_year, container, false)
 
         val programs = resources.getStringArray(R.array.Programmes)
-        val spinner = view?.findViewById<Spinner>(R.id.chooseProgramme)
+        spinner = root.findViewById<Spinner>(R.id.chooseProgramme)
 
         if (spinner != null) {
             val spinnerAdapter = ArrayAdapter(
@@ -44,6 +47,14 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
 
 
         root.yearOneButton.setOnClickListener{
+            onClick(it)
+        }
+
+        root.yearTwoButton.setOnClickListener{
+            onClick(it)
+        }
+
+        root.yearThreeButton.setOnClickListener{
             onClick(it)
         }
 
@@ -60,11 +71,34 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         val id = v?.id
         if (id == R.id.yearOneButton) {
-            findNavController().navigate(R.id.coursesFragment)
+
+            val chosenProgram = spinner.selectedItem.toString()
+
+            val bundle = bundleOf(
+                "Program" to chosenProgram,
+                "Year" to "1"
+            )
+
+            findNavController().navigate(R.id.coursesFragment, bundle)
+
+
         } else if (id == R.id.yearTwoButton) {
-            findNavController().navigate(R.id.coursesFragment)
+
+            val chosenProgram = spinner.selectedItem.toString()
+
+            var bundle = bundleOf(
+                "Program" to chosenProgram,
+                "Year" to "2"
+            )
+            findNavController().navigate(R.id.coursesFragment,bundle)
         } else if (id == R.id.yearThreeButton) {
-            findNavController().navigate(R.id.coursesFragment)
+            val chosenProgram = spinner.selectedItem.toString()
+
+            var bundle = bundleOf(
+                "Program" to chosenProgram,
+                "Year" to "3"
+            )
+            findNavController().navigate(R.id.coursesFragment,bundle)
         }
     }
 

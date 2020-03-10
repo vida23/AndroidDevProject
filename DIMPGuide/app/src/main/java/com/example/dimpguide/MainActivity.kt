@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
         continueWithoutLogin.setOnClickListener {
-            val intent = Intent(this,ProgrammeYearActivity::class.java)
+            val intent = Intent(this,ActingMainActivity::class.java)
             startActivity(intent)
         }
 
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(){
         super.onStart()
         //Check if logged in, redirect to "programmeY..."
         if (FirebaseAuth.getInstance().currentUser != null){
-            startActivity(Intent(this,ProgrammeYearActivity::class.java))
+            startActivity(Intent(this,ActingMainActivity::class.java))
         }
     }
 }

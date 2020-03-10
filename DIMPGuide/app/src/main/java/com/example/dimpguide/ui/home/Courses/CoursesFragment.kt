@@ -21,6 +21,9 @@ class CoursesFragment : Fragment() {
 
     companion object {
         fun newInstance() = CoursesFragment()
+        var LOOP_VARIABLE = 0
+        lateinit var FIRST_COURSE: String
+        lateinit var FIRST_COURSE_ID: String
     }
 
     private lateinit var viewModel: CoursesViewModel
@@ -32,11 +35,10 @@ class CoursesFragment : Fragment() {
         val root = inflater.inflate(R.layout.courses_fragment, container, false)
 
 
-        val intent = activity?.intent
-        var chosenProgram = intent?.getStringExtra("Program")
+        var chosenProgram = arguments?.getString("Program")
 
-        Log.i("CourseFragment", chosenProgram.toString())
-        val chosenYear = intent?.getStringExtra("Year")
+        Log.i("database", chosenProgram)
+        val chosenYear = arguments?.getString("Year")
         val dataset: MutableList<StudyPeriod> = ArrayList()
 
         if (chosenProgram == "Software Development") {
@@ -45,6 +47,7 @@ class CoursesFragment : Fragment() {
             chosenProgram = "Inbyggda system"
         }
 
+        Log.i("database", chosenProgram.toString())
 
         DbHandler.db.collection("courses")
             .whereIn("pro", listOf("dimp", chosenProgram)) //field is either program or dimp
@@ -54,85 +57,86 @@ class CoursesFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 var matchingCourses: String
                 for (document in documents) {
+                    Log.i("database", document.getString("name").toString())
                     if (document.getLong("period") == 1.toLong()) {
 
-                        if (CoursesActivity.LOOP_VARIABLE == 0) {
-                            CoursesActivity.FIRST_COURSE = (document.getString("name")).toString()
-                            CoursesActivity.FIRST_COURSE_ID = (document.id)
-                            CoursesActivity.LOOP_VARIABLE += 1
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
+                            LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
                         val studyPeriod = StudyPeriod(
-                            CoursesActivity.FIRST_COURSE,
+                            FIRST_COURSE,
                             matchingCourses,
                             "Period 1",
-                            CoursesActivity.FIRST_COURSE_ID,
+                            FIRST_COURSE_ID,
                             course2_id = document.id
                         )
                         dataset.add(studyPeriod)
 
-                        CoursesActivity.LOOP_VARIABLE = 0
+                        LOOP_VARIABLE = 0
 
                     } else if (document.getLong("period") == 2.toLong()) {
 
-                        if (CoursesActivity.LOOP_VARIABLE == 0) {
-                            CoursesActivity.FIRST_COURSE = (document.getString("name")).toString()
-                            CoursesActivity.FIRST_COURSE_ID = (document.id)
-                            CoursesActivity.LOOP_VARIABLE += 1
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
+                            LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
                         val studyPeriod = StudyPeriod(
-                            CoursesActivity.FIRST_COURSE,
+                            FIRST_COURSE,
                             matchingCourses,
                             "Period 2",
-                            CoursesActivity.FIRST_COURSE_ID,
+                            FIRST_COURSE_ID,
                             course2_id = document.id
                         )
                         dataset.add(studyPeriod)
 
-                        CoursesActivity.LOOP_VARIABLE = 0
+                        LOOP_VARIABLE = 0
 
                     } else if (document.getLong("period") == 3.toLong()) {
-
-                        if (CoursesActivity.LOOP_VARIABLE == 0) {
-                            CoursesActivity.FIRST_COURSE = (document.getString("name")).toString()
-                            CoursesActivity.FIRST_COURSE_ID = (document.id)
-                            CoursesActivity.LOOP_VARIABLE += 1
+                        Log.i("database", document.getString("name"))
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
+                            LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
                         val studyPeriod = StudyPeriod(
-                            CoursesActivity.FIRST_COURSE,
+                            FIRST_COURSE,
                             matchingCourses,
                             "Period 3",
-                            CoursesActivity.FIRST_COURSE_ID,
+                            FIRST_COURSE_ID,
                             course2_id = document.id
                         )
                         dataset.add(studyPeriod)
 
-                        CoursesActivity.LOOP_VARIABLE = 0
+                        LOOP_VARIABLE = 0
 
                     } else if (document.getLong("period") == 4.toLong()) {
-
-                        if (CoursesActivity.LOOP_VARIABLE == 0) {
-                            CoursesActivity.FIRST_COURSE = (document.getString("name")).toString()
-                            CoursesActivity.FIRST_COURSE_ID = (document.id)
-                            CoursesActivity.LOOP_VARIABLE += 1
+                        Log.i("database", document.getString("name"))
+                        if (LOOP_VARIABLE == 0) {
+                            FIRST_COURSE = (document.getString("name")).toString()
+                            FIRST_COURSE_ID = (document.id)
+                            LOOP_VARIABLE += 1
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
                         val studyPeriod = StudyPeriod(
-                            CoursesActivity.FIRST_COURSE,
+                            FIRST_COURSE,
                             matchingCourses,
                             "Period 4",
-                            CoursesActivity.FIRST_COURSE_ID,
+                            FIRST_COURSE_ID,
                             course2_id = document.id
                         )
                         dataset.add(studyPeriod)
 
-                        CoursesActivity.LOOP_VARIABLE = 0
+                        LOOP_VARIABLE = 0
                     }
 
                 }
