@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_programme">
 
     <fragment
         android:id="@+id/nav_home"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/coursesFragment"
         android:name="com.example.dimpguide.ui.home.Courses.CoursesFragment"
-        android:label="courses_fragment"
+        android:label="Courses"
         tools:layout="@layout/courses_fragment" >
         <action
             android:id="@+id/action_coursesFragment_to_specificCourseFragment"

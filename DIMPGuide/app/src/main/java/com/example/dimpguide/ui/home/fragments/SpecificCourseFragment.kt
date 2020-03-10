@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.dimpguide.*
 
@@ -22,8 +23,12 @@ class SpecificCourseFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.specific_course_fragment, container, false)
         root.findViewById<TextView>(R.id.Course).apply{
-            //this.text = name
+            //activity!!.applicationContext.text = name
         }
+
+        val name = arguments?.getString("name")
+        val course_id = arguments?.getString("course_id")
+
         root.findViewById<Button>(R.id.CourseMaterialButton)
             .setOnClickListener {
                 findNavController().navigate(R.id.courseMaterialFragment)
@@ -39,7 +44,12 @@ class SpecificCourseFragment : Fragment() {
             }
         root.findViewById<Button>(R.id.GoodToKnowButton)
             .setOnClickListener {
-                findNavController().navigate(R.id.courseMaterialFragment)
+
+                var bundle = bundleOf(
+                    "name" to name,
+                    "course_id" to course_id
+                )
+                findNavController().navigate(R.id.courseMaterialFragment, bundle)
             }
         return root
     }

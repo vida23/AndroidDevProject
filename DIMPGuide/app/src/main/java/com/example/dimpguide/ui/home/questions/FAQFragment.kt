@@ -2,12 +2,14 @@ package com.example.dimpguide.ui.home.questions
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dimpguide.DbHandler
 import com.example.dimpguide.FAQ
 import com.example.dimpguide.FAQRecyclerViewAdapter
 
@@ -29,19 +31,38 @@ class FAQFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.faq_fragment, container, false)
 
+        val dataset: MutableList<FAQ> = ArrayList()
 
-        viewManager = LinearLayoutManager(context)
+        DbHandler.db.collection("FAQ")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents){
+                    if(document.getString("answer")!= null) {
+                        val faq = FAQ(
+                            document.getString("question").toString(),
+                            document.getString("answer").toString()
+                        )
+                        dataset.add(faq)
+                    }
+                }
+
+                viewManager = LinearLayoutManager(activity!!.applicationContext)
+                viewAdapter = FAQRecyclerViewAdapter(dataset,activity!!.applicationContext)
 
 
-        root.findViewById<RecyclerView>(R.id.FAQRecyclerView).apply{
-            setHasFixedSize(true)
+                root.findViewById<RecyclerView>(R.id.FAQRecyclerView).apply{
+                    setHasFixedSize(true)
 
-            layoutManager = viewManager
+                    layoutManager = viewManager
 
-            adapter = viewAdapter
+                    adapter = viewAdapter
+                }
 
+            }
+            .addOnFailureListener {exception ->
+                Log.w("Cannot find file", "Error getting document", exception)
 
-        }
+            }
 
         return root
     }

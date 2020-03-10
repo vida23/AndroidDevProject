@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 
@@ -42,14 +43,22 @@ class CourseRecyclerViewAdapter(private val dataset: MutableList<StudyPeriod>, p
                 intent.putExtra("name",studyPeriod.course1)
                 intent.putExtra("course_id",studyPeriod.course1_id)
                 startActivity(context,intent,null)*/
-                view.findNavController().navigate(R.id.specificCourseFragment)
+                var bundle = bundleOf(
+                    "name" to studyPeriod.course1,
+                    "course_id" to studyPeriod.course1_id
+                )
+                view.findNavController().navigate(R.id.specificCourseFragment, bundle)
             }
             view.course2.setOnClickListener {
                 /*val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",studyPeriod.course2)
                 intent.putExtra("course_id",studyPeriod.course2_id)
                 startActivity(context,intent,null)*/
-                view.findNavController().navigate(R.id.specificCourseFragment)
+                var bundle = bundleOf(
+                    "name" to studyPeriod.course2,
+                    "course_id" to studyPeriod.course2_id
+                )
+                view.findNavController().navigate(R.id.specificCourseFragment,bundle)
                 /*val intent = Intent(context,Specific_course::class.java)
                 intent.putExtra("name",course.course1)
                 startActivity(context,intent,null)*/
