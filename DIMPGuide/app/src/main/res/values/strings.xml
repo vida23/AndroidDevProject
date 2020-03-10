@@ -25,7 +25,7 @@
     </string-array>
     <string name="Rating">Feel free to rate the course</string>
     <string name="CourseMaterial">Course Material</string>
-    <string name="GoodToKnow">Good knowledge to know about the course</string>
+    <string name="GoodToKnow">Click here for more information about this course</string>
     <string name="FAQ">FAQ</string>
     <string name="Ask">Ask</string>
     <string name="EnterAQuestion">Enter a question</string>
@@ -60,5 +60,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="questionSubmitted">Your question has been submitted!</string>
+    <string name="course_preknow">Required preknowledge for the course</string>
 
 </resources>

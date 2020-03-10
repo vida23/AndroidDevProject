@@ -21,14 +21,6 @@ class Specific_course : BaseFunctionsForAllActivities() {
             this.text = name
         }
 
-
-        findViewById<Button>(R.id.CourseMaterialButton)
-            .setOnClickListener {
-                val intent = Intent(this,CourseMaterialActivity::class.java)
-                //Shall put id from the database here when valid
-                startActivity(intent)
-            }
-
         findViewById<Button>(R.id.FAQButton)
             .setOnClickListener {
                 startActivity(Intent(this,FAQActivity::class.java))

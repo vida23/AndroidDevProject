@@ -31,20 +31,22 @@ class CourseMaterialFragment : Fragment() {
         val courseTitle = root.findViewById<TextView>(R.id.CourseTitle)
         courseTitle.text = courseName
 
-       db.collection("courses").document(courseId.toString())
-           .get()
+        db.collection("courses").document(courseId.toString())
+            .get()
             .addOnSuccessListener { document ->
-                if (document != null){
+                if (document != null) {
                     root.findViewById<TextView>(R.id.NumberOfHp).apply {
                         this.text = document.get("hp").toString()
                     }
-                    root.findViewById<TextView>(R.id.CourseDescription).apply {
+                    root.findViewById<TextView>(R.id.courseDescription).apply {
                         this.text = document.get("des").toString()
+                    }
+                    root.findViewById<TextView>(R.id.CoursePreknowledge).apply {
+                        this.text = document.get("pre").toString()
                     }
                 }
 
             }
-
 
         return root
     }

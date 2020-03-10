@@ -38,10 +38,6 @@ class SpecificCourseFragment : Fragment() {
         val name = arguments?.getString("name")
         val course_id = arguments?.getString("course_id")
 
-        root.findViewById<Button>(R.id.CourseMaterialButton)
-            .setOnClickListener {
-                findNavController().navigate(R.id.courseMaterialFragment)
-            }
         var avgRating: Long
         val givenRate = root.findViewById<RatingBar>(R.id.CourseRatingBar)
 

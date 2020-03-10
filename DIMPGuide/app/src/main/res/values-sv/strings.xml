@@ -23,7 +23,7 @@
         <item>Årskurs 3</item>
     </string-array>
     <string name="CourseMaterial">Kurs material</string>
-    <string name="GoodToKnow">Bra kunskap att ha angående kursen</string>
+    <string name="GoodToKnow">Klicka här för mer information om kursen</string>
     <string name="Rating">Lämmna gärna ett betyg på kursen</string>
     <string name="FAQ">FAQ</string>
     <string name="Ask">Fråga</string>
@@ -43,5 +43,6 @@
     <string name="ratesubmit">Sätt betyg</string>
     <string name="ThankYouRating">Tack för din feedback!</string>
     <string name="QuestionBeenSubmitted">Din fråga har mottagits!</string>
+    <string name="course_preknow">Förkunskaper som krävs inför kursen</string>
 
 </resources>
