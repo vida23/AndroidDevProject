@@ -53,7 +53,8 @@ class AskFragment : Fragment() {
                 }
             }
         })
-        root.findViewById<EditText>(R.id.EnterQuestionText).addTextChangedListener(object : TextWatcher {
+
+        root.findViewById<EditText>(R.id.enterQuestionText).addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if(subjectText.text.length < MINIMUM_SUBJECT_LENGTH || subjectText.text.length > MAXIMUM_SUBJECT_LENGTH){
 
@@ -78,14 +79,13 @@ class AskFragment : Fragment() {
 
         })
 
-
         return root
     }
 
-companion object{
-    const val MINIMUM_QUESTION_LENGTH = 5
-    const val MAXIMUM_QUESTION_LENGTH = 100
-    const val MINIMUM_SUBJECT_LENGTH = 3
-    const val MAXIMUM_SUBJECT_LENGTH = 20
-}
+    companion object{
+        const val MINIMUM_QUESTION_LENGTH = 5
+        const val MAXIMUM_QUESTION_LENGTH = 100
+        const val MINIMUM_SUBJECT_LENGTH = 3
+        const val MAXIMUM_SUBJECT_LENGTH = 20
+    }
 }

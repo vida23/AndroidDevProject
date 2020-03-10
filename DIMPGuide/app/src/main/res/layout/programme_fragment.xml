@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.fragments.ProgrammeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
@@ -16,6 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/yearOneButton"
         android:layout_width="match_parent"
@@ -47,5 +53,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/yearThreeButton" />
 
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.fragments.SpecificCourseFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,6 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Specific_course">
+
+
 
         <TextView
             android:id="@+id/Course"
@@ -94,6 +99,7 @@
         </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </FrameLayout>

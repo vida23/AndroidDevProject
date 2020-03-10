@@ -21,7 +21,8 @@ class CourseMaterialFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.course_material_fragment, container, false)
+        val root = inflater.inflate(R.layout.course_material_fragment, container, false)
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
