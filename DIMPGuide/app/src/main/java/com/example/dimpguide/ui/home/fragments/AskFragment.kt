@@ -1,6 +1,7 @@
 package com.example.dimpguide.ui.home.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,8 +12,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.dimpguide.DbHandler
 
 import com.example.dimpguide.R
+import com.example.dimpguide.Specific_course
 import kotlinx.android.synthetic.main.activity_ask.*
 
 /**
@@ -30,6 +35,16 @@ class AskFragment : Fragment() {
         val subjectErrorText = root.findViewById<TextView>(R.id.subjectErrorText)
         val submitButton = root.findViewById<Button>(R.id.submitButton)
         val questionErrorText = root.findViewById<TextView>(R.id.questionErrorText)
+
+        submitButton.setOnClickListener {
+            val questionData = hashMapOf(
+                "question" to enterQuestionText.text.toString()
+            )
+            DbHandler.db.collection("FAQ")
+                .add(questionData)
+            findNavController().navigate(R.id.specificCourseFragment)
+            Toast.makeText(activity!!.applicationContext,"Your question has been submitted!", Toast.LENGTH_LONG).show()
+        }
 
         root.findViewById<EditText>(R.id.subjectText).addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
