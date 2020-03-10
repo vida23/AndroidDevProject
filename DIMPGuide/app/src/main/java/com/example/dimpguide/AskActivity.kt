@@ -29,7 +29,7 @@ class AskActivity : BaseFunctionsForAllActivities() {
             db.collection("FAQ")
                 .add(questionData)
             startActivity(Intent(this, Specific_course::class.java))
-            Toast.makeText(this,"Your question has been submitted!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,getString(R.string.QuestionBeenSubmitted), Toast.LENGTH_LONG).show()
         }
 
 
@@ -55,6 +55,7 @@ class AskActivity : BaseFunctionsForAllActivities() {
                 }
             }
         })
+
         enterQuestionText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if(subjectText.text.length < MINIMUM_SUBJECT_LENGTH || subjectText.text.length > MAXIMUM_SUBJECT_LENGTH){

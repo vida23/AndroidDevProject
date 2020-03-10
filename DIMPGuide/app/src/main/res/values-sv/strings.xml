@@ -40,4 +40,8 @@
     <string name="sign_out">Logga ut</string>
     <string name="sign_up_or_sign_in">Logga in/Skapa Konto</string>
     <string name="back_to_course">Tillbaka till kursen</string>
+    <string name="ratesubmit">Sätt betyg</string>
+    <string name="ThankYouRating">Tack för din feedback!</string>
+    <string name="QuestionBeenSubmitted">Din fråga har mottagits!</string>
+
 </resources>

@@ -43,7 +43,7 @@ class AskFragment : Fragment() {
             DbHandler.db.collection("FAQ")
                 .add(questionData)
             findNavController().navigate(R.id.specificCourseFragment)
-            Toast.makeText(activity!!.applicationContext,"Your question has been submitted!", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity!!.applicationContext,getString(R.string.questionSubmitted), Toast.LENGTH_LONG).show()
         }
 
         root.findViewById<EditText>(R.id.subjectText).addTextChangedListener(object: TextWatcher {
