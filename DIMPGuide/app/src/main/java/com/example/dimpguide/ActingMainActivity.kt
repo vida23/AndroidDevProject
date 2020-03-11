@@ -39,12 +39,13 @@ open class ActingMainActivity : AppCompatActivity() {
             ), drawerLayout
         )
 
-        val disableSing = navView.menu.findItem(R.id.signOutFragment)
+        val signInOut = navView.menu.findItem(R.id.signOutFragment)
 
         if (FirebaseAuth.getInstance().currentUser != null){
+
         }
         else{
-            disableSing.isEnabled = false
+            signInOut.title = getString(R.string.sign_in)
         }
 
 

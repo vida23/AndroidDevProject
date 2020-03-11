@@ -32,6 +32,8 @@ class CoursesFragment : Fragment() {
         lateinit var matchingCourses:String
         const val EMBEDDED_SYSTEMS:String = "Inbyggda system"
         const val SOFTWARE_DEVELOPMENT:String = "Mjukvaruuveckling och mobila plattformar"
+        lateinit var optionalCourseOne:String
+        lateinit var optionalCourseTwo:String
     }
 
     private lateinit var viewModel: CoursesViewModel
@@ -56,123 +58,160 @@ class CoursesFragment : Fragment() {
 
         Log.i("database", chosenProgram.toString())
 
-        db.collection("courses")
-            .whereIn("pro", listOf("dimp", chosenProgram)) //field is either program or dimp
-            .whereEqualTo("year", chosenYear)
-            .orderBy("period", Query.Direction.ASCENDING)
+        db.collection("users")
+            .whereEqualTo("uid", FirebaseAuth.getInstance().currentUser!!.uid)
             .get()
-            .addOnSuccessListener { documents ->
-                var matchingCourses: String
-                for (document in documents) {
-                    Log.i("database", document.getString("name").toString())
-                    if (document.getLong("period") == 1.toLong()) {
-
-                        if (LOOP_VARIABLE == 0) {
-                            FIRST_COURSE = (document.getString("name")).toString()
-                            FIRST_COURSE_ID = (document.id)
-                            LOOP_VARIABLE += 1
-                            continue
+            .addOnSuccessListener { docs ->
+                if (!docs.isEmpty) {
+                    for (doc in docs) {
+                        if (doc.getString("optionalCourseOne").toString() != null) {
+                            optionalCourseOne = doc.getString("optionalCourseOne").toString()
+                            optionalCourseTwo = doc.getString("optionalCourseTwo").toString()
                         }
-                        matchingCourses = (document.getString("name")).toString()
-
-
-
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 1",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
-
-                        LOOP_VARIABLE = 0
-
-                    } else if (document.getLong("period") == 2.toLong()) {
-
-                        if (LOOP_VARIABLE == 0) {
-                            FIRST_COURSE = (document.getString("name")).toString()
-                            FIRST_COURSE_ID = (document.id)
-                            LOOP_VARIABLE += 1
-                            continue
-                        }
-                        matchingCourses = (document.getString("name")).toString()
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 2",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
-
-                        LOOP_VARIABLE = 0
-
-                    } else if (document.getLong("period") == 3.toLong()) {
-                        Log.i("database", document.getString("name"))
-                        if (LOOP_VARIABLE == 0) {
-                            FIRST_COURSE = (document.getString("name")).toString()
-                            FIRST_COURSE_ID = (document.id)
-                            LOOP_VARIABLE += 1
-                            continue
-                        }
-                        matchingCourses = (document.getString("name")).toString()
-
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 3",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
-
-                        LOOP_VARIABLE = 0
-
-                    } else if (document.getLong("period") == 4.toLong()) {
-                        Log.i("database", document.getString("name"))
-                        if (LOOP_VARIABLE == 0) {
-                            FIRST_COURSE = (document.getString("name")).toString()
-                            FIRST_COURSE_ID = (document.id)
-                            LOOP_VARIABLE += 1
-                            continue
-                        }
-
-                        matchingCourses = (document.getString("name")).toString()
-
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 4",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
-
-                        LOOP_VARIABLE = 0
+                        Log.i("database", "from user collection " + optionalCourseOne)
+                        Log.i("database", "from user collection " + optionalCourseTwo)
                     }
+
+                    db.collection("courses")
+                        .whereIn(
+                            "pro",
+                            listOf("dimp", chosenProgram)
+                        ) //field is either program or dimp
+                        .whereEqualTo("year", chosenYear)
+                        .orderBy("period", Query.Direction.ASCENDING)
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            // var matchingCourses: String
+                            for (document in documents) {
+                                Log.i("database", document.getString("name").toString())
+                                if (document.getLong("period") == 1.toLong()) {
+
+                                    if (LOOP_VARIABLE == 0) {
+                                        FIRST_COURSE = (document.getString("name")).toString()
+                                        FIRST_COURSE_ID = (document.id)
+                                        LOOP_VARIABLE += 1
+                                        continue
+                                    }
+
+                                    matchingCourses = (document.getString("name")).toString()
+                                    if (FirebaseAuth.getInstance().currentUser != null && document.getString(
+                                            "year"
+                                        ) == "3" && optionalCourseOne.length > 1
+                                    ) {
+                                        matchingCourses = optionalCourseOne
+                                    }
+
+                                    val studyPeriod = StudyPeriod(
+                                        FIRST_COURSE,
+                                        matchingCourses,
+                                        "Period 1",
+                                        FIRST_COURSE_ID,
+                                        course2_id = document.id,
+                                        year = document.getString("year").toString()
+                                    )
+                                    dataset.add(studyPeriod)
+
+                                    LOOP_VARIABLE = 0
+
+                                } else if (document.getLong("period") == 2.toLong()) {
+
+                                    if (LOOP_VARIABLE == 0) {
+                                        FIRST_COURSE = (document.getString("name")).toString()
+                                        FIRST_COURSE_ID = (document.id)
+                                        LOOP_VARIABLE += 1
+                                        continue
+                                    }
+                                    matchingCourses = (document.getString("name")).toString()
+                                    if (FirebaseAuth.getInstance().currentUser != null && document.getString(
+                                            "year"
+                                        ) == "3" && optionalCourseTwo.length > 1
+                                    ) {
+                                        matchingCourses = optionalCourseTwo
+                                    }
+
+                                    val studyPeriod = StudyPeriod(
+                                        FIRST_COURSE,
+                                        matchingCourses,
+                                        "Period 2",
+                                        FIRST_COURSE_ID,
+                                        course2_id = document.id,
+                                        year = document.getString("year").toString()
+                                    )
+                                    dataset.add(studyPeriod)
+
+                                    LOOP_VARIABLE = 0
+
+                                } else if (document.getLong("period") == 3.toLong()) {
+                                    Log.i("database", document.getString("name"))
+                                    if (LOOP_VARIABLE == 0) {
+                                        FIRST_COURSE = (document.getString("name")).toString()
+                                        FIRST_COURSE_ID = (document.id)
+                                        LOOP_VARIABLE += 1
+                                        continue
+                                    }
+                                    matchingCourses = (document.getString("name")).toString()
+
+                                    val studyPeriod = StudyPeriod(
+                                        FIRST_COURSE,
+                                        matchingCourses,
+                                        "Period 3",
+                                        FIRST_COURSE_ID,
+                                        course2_id = document.id,
+                                        year = document.getString("year").toString()
+                                    )
+                                    dataset.add(studyPeriod)
+
+                                    LOOP_VARIABLE = 0
+
+                                } else if (document.getLong("period") == 4.toLong()) {
+                                    Log.i("database", document.getString("name"))
+                                    if (LOOP_VARIABLE == 0) {
+                                        FIRST_COURSE = (document.getString("name")).toString()
+                                        FIRST_COURSE_ID = (document.id)
+                                        LOOP_VARIABLE += 1
+                                        continue
+                                    }
+
+                                    matchingCourses = (document.getString("name")).toString()
+
+                                    val studyPeriod = StudyPeriod(
+                                        FIRST_COURSE,
+                                        matchingCourses,
+                                        "Period 4",
+                                        FIRST_COURSE_ID,
+                                        course2_id = document.id,
+                                        year = document.getString("year").toString()
+                                    )
+                                    dataset.add(studyPeriod)
+
+                                    LOOP_VARIABLE = 0
+                                }
+
+                            }
+                            viewManager = LinearLayoutManager(context)
+                            viewAdapter = CourseRecyclerViewAdapter(dataset, context!!)
+
+                            coursesRecyclerView =
+                                root.findViewById<RecyclerView>(R.id.coursesRecyclerView).apply {
+                                    setHasFixedSize(true)
+
+                                    layoutManager = viewManager
+
+                                    adapter = viewAdapter
+                                }
+                        }
+
+                        .addOnFailureListener { exception ->
+                            Log.w("Could not find", "Error getting documents: ", exception)
+                        }
 
                 }
-                viewManager = LinearLayoutManager(context)
-                viewAdapter = CourseRecyclerViewAdapter(dataset, context!!)
 
-                coursesRecyclerView =
-                    root.findViewById<RecyclerView>(R.id.coursesRecyclerView).apply {
-                        setHasFixedSize(true)
-
-                        layoutManager = viewManager
-
-                        adapter = viewAdapter
-                    }
+            }
+            .addOnFailureListener {
+                Log.i("database", "FAIL")
             }
 
-            .addOnFailureListener { exception ->
-                Log.w("Could not find", "Error getting documents: ", exception)
-            }
         return root
     }
 

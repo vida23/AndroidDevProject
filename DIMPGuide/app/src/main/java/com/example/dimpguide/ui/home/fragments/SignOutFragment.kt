@@ -1,6 +1,7 @@
 package com.example.dimpguide.ui.home.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.dimpguide.R
+import com.example.dimpguide.SignInActivity
+import com.example.dimpguide.SignupActivity
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 /**
@@ -21,8 +25,17 @@ class SignOutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        FirebaseAuth.getInstance().signOut()
-        activity!!.finish()
+        if (FirebaseAuth.getInstance().currentUser != null){
+            FirebaseAuth.getInstance().signOut()
+            activity!!.finish()
+        }
+        else{
+            val intent = Intent(activity!!.applicationContext, SignInActivity::class.java)
+            startActivity(intent)
+            activity!!.finish()
+        }
+
+
 
         return null
     }
