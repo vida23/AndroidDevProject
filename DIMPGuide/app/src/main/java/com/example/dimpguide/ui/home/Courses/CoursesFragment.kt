@@ -29,6 +29,9 @@ class CoursesFragment : Fragment() {
         lateinit var FIRST_COURSE: String
         lateinit var FIRST_COURSE_ID: String
         lateinit var OPTIONAL_COURSE_ONE: String
+        lateinit var matchingCourses:String
+        const val EMBEDDED_SYSTEMS:String = "Inbyggda system"
+        const val SOFTWARE_DEVELOPMENT:String = "Mjukvaruuveckling och mobila plattformar"
     }
 
     private lateinit var viewModel: CoursesViewModel
@@ -45,9 +48,9 @@ class CoursesFragment : Fragment() {
         val chosenYear = arguments?.getString("Year")
         val dataset: MutableList<StudyPeriod> = ArrayList()
 
-        if (chosenProgram == "Software Development") {
+        if (EMBEDDED_SYSTEMS != getString(R.string.embedded_systems)) {
             chosenProgram = "Mjukvaruutveckling och mobila plattformar"
-        } else if (chosenProgram == "Embedded Systems") {
+        } else if ( SOFTWARE_DEVELOPMENT!= getString(R.string.software_development)) {
             chosenProgram = "Inbyggda system"
         }
 
@@ -71,6 +74,9 @@ class CoursesFragment : Fragment() {
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
+
+
+
                         val studyPeriod = StudyPeriod(
                             FIRST_COURSE,
                             matchingCourses,

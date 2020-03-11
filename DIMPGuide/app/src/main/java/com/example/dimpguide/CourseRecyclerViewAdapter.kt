@@ -46,9 +46,9 @@ class CourseRecyclerViewAdapter(
             view.period.text = studyPeriod.period
 
 
-            /*if (studyPeriod.course2 == "Valbar 2" || studyPeriod.course2 == "Valbar 1") {
+            if (studyPeriod.course2 == "Valbar 2" || studyPeriod.course2 == "Valbar 1") {
                 view.course2.setBackgroundResource(R.drawable.ic_add_black_24dp)
-            }*/
+            }
 
 
             view.course1.setOnClickListener {

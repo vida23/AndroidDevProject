@@ -73,11 +73,13 @@ class SpecificCourseFragment : Fragment() {
                                 getString(R.string.ThankYouRating),
                                 Toast.LENGTH_LONG
                             ).show()
-
+                            rateSubmitButton.isEnabled = false
+                            givenRate.isEnabled = false
                         }
 
                     } else {
                         rateSubmitButton.isEnabled = false
+                        givenRate.isEnabled = false
                     }
 
 

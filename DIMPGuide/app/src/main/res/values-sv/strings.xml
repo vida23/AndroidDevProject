@@ -44,5 +44,21 @@
     <string name="ThankYouRating">Tack för din feedback!</string>
     <string name="QuestionBeenSubmitted">Din fråga har mottagits!</string>
     <string name="course_preknow">Förkunskaper som krävs inför kursen</string>
+    <string name="action_settings">Inställningar</string>
+    <string name="hello_blank_fragment">Hej blanka fragmentet</string>
+    <string name="menu_home">Hem</string>
+    <string name="menu_programme">Program</string>
+    <string name="menu_send">Skicka</string>
+    <string name="menu_share">Dela</string>
+    <string name="menu_slideshow">"Slideshow "</string>
+    <string name="menu_tools">Verktyg</string>
+    <string name="nav_header_desc">Navigation</string>
+    <string name="nav_header_subtitle">Nice</string>
+    <string name="nav_header_title">DIMP Guiden</string>
+    <string name="navigation_drawer_close">Stäng navigationsmeny</string>
+    <string name="navigation_drawer_open">Öppna navigationsmeny</string>
+    <string name="questionSubmitted">Din fråga har blivit tillagd</string>
+    <string name="specific_course">Kurs</string>
+    <string name="title_activity_acting_main">LåstsasAktivitet</string>
 
 </resources>
