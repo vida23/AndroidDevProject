@@ -62,7 +62,9 @@ class SignupActivity : AppCompatActivity() {
                             uid = FirebaseAuth.getInstance().currentUser!!.uid,
                             year = chosenYearInt,
                             program = programme.selectedItem.toString(),
-                            email = email_edittext_signup.text.toString()
+                            email = email_edittext_signup.text.toString(),
+                            optionalCourseOne = "",
+                            optionalCourseTwo = ""
                         )
                     )
                         .addOnSuccessListener {
@@ -70,10 +72,6 @@ class SignupActivity : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         }
-
-                    val intent = Intent(this, ActingMainActivity::class.java)
-                    startActivity(intent)
-                    finish()
                 }
                 .addOnFailureListener {
                     Log.d("signup", "Failed to create:${it.message}")

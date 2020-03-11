@@ -21,18 +21,8 @@ class SignOutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.i("signOut","Check for user!")
-        Log.i("signOut", FirebaseAuth.getInstance().currentUser.toString())
-
-        if (FirebaseAuth.getInstance().currentUser != null){
-            FirebaseAuth.getInstance().signOut()
-            activity!!.finish()
-        }
-        else{
-            Log.i("signOut","You are not logged in")
-            activity!!.finish()
-        }
-
+        FirebaseAuth.getInstance().signOut()
+        activity!!.finish()
 
         return null
     }

@@ -1,6 +1,7 @@
 package com.example.dimpguide
 
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -11,6 +12,9 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
 
 open class ActingMainActivity : AppCompatActivity() {
 
@@ -31,9 +35,19 @@ open class ActingMainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home ,R.id.nav_programme, R.id.coursesFragment, R.id.specificCourseFragment, R.id.signOutFragment
+                R.id.nav_programme, R.id.coursesFragment, R.id.specificCourseFragment, R.id.signOutFragment, R.id.FAQFragment, R.id.askFragment
             ), drawerLayout
         )
+
+        val disableSing = navView.menu.findItem(R.id.signOutFragment)
+
+        if (FirebaseAuth.getInstance().currentUser != null){
+        }
+        else{
+            disableSing.isEnabled = false
+        }
+
+
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

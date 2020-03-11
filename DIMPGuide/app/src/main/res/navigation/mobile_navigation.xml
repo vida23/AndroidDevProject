@@ -6,11 +6,6 @@
     app:startDestination="@+id/nav_programme">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.dimpguide.ui.home.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
         android:id="@+id/nav_programme"
         android:name="com.example.dimpguide.ui.home.fragments.ProgrammeFragment"
         android:label="@string/menu_programme"
@@ -31,7 +26,7 @@
     <fragment
         android:id="@+id/specificCourseFragment"
         android:name="com.example.dimpguide.ui.home.fragments.SpecificCourseFragment"
-        android:label="specific_course_fragment"
+        android:label="@string/specific_course"
         tools:layout="@layout/specific_course_fragment" >
         <action
             android:id="@+id/action_specificCourseFragment_to_courseMaterialFragment"
@@ -46,21 +41,30 @@
     <fragment
         android:id="@+id/courseMaterialFragment"
         android:name="com.example.dimpguide.ui.home.courseMaterial.CourseMaterialFragment"
-        android:label="course_material_fragment"
+        android:label="@string/CourseMaterial"
         tools:layout="@layout/course_material_fragment" />
     <fragment
         android:id="@+id/askFragment"
         android:name="com.example.dimpguide.ui.home.fragments.AskFragment"
-        android:label="fragment_ask"
+        android:label="@string/Ask"
         tools:layout="@layout/fragment_ask" />
     <fragment
         android:id="@+id/FAQFragment"
         android:name="com.example.dimpguide.ui.home.questions.FAQFragment"
-        android:label="faq_fragment"
-        tools:layout="@layout/faq_fragment" />
+        android:label="@string/FAQ"
+        tools:layout="@layout/faq_fragment" >
+        <action
+            android:id="@+id/action_FAQFragment_to_optionalCourse"
+            app:destination="@id/optionalCourseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signOutFragment"
         android:name="com.example.dimpguide.ui.home.fragments.SignOutFragment"
-        android:label="SignOutFragmentNew" />
+        android:label="@string/sign_out" />
+    <fragment
+        android:id="@+id/optionalCourseFragment"
+        android:name="com.example.dimpguide.ui.home.fragments.OptionalCourse"
+        android:label="fragment_optional_course"
+        tools:layout="@layout/fragment_optional_course" />
 
 </navigation>

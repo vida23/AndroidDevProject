@@ -58,7 +58,8 @@ class CoursesActivity : AppCompatActivity() {
                             matchingCourses,
                             "Period 1",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -78,7 +79,8 @@ class CoursesActivity : AppCompatActivity() {
                             matchingCourses,
                             "Period 2",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -98,7 +100,8 @@ class CoursesActivity : AppCompatActivity() {
                             matchingCourses,
                             "Period 3",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -118,7 +121,8 @@ class CoursesActivity : AppCompatActivity() {
                             matchingCourses,
                             "Period 4",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 

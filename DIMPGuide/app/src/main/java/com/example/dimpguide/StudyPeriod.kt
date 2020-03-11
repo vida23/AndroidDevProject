@@ -5,5 +5,6 @@ data class StudyPeriod(
     val course2:String,
     val period:String,
     val course1_id: String,
-    val course2_id: String
+    val course2_id: String,
+    val year: String
 )

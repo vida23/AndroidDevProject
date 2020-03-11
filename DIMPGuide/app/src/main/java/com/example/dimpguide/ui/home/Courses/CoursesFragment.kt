@@ -11,7 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dimpguide.*
+import com.example.dimpguide.DbHandler.Companion.db
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.auth.User
+import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class CoursesFragment : Fragment() {
 
@@ -24,6 +28,7 @@ class CoursesFragment : Fragment() {
         var LOOP_VARIABLE = 0
         lateinit var FIRST_COURSE: String
         lateinit var FIRST_COURSE_ID: String
+        lateinit var OPTIONAL_COURSE_ONE: String
     }
 
     private lateinit var viewModel: CoursesViewModel
@@ -37,7 +42,6 @@ class CoursesFragment : Fragment() {
 
         var chosenProgram = arguments?.getString("Program")
 
-        Log.i("database", chosenProgram)
         val chosenYear = arguments?.getString("Year")
         val dataset: MutableList<StudyPeriod> = ArrayList()
 
@@ -49,7 +53,7 @@ class CoursesFragment : Fragment() {
 
         Log.i("database", chosenProgram.toString())
 
-        DbHandler.db.collection("courses")
+        db.collection("courses")
             .whereIn("pro", listOf("dimp", chosenProgram)) //field is either program or dimp
             .whereEqualTo("year", chosenYear)
             .orderBy("period", Query.Direction.ASCENDING)
@@ -72,7 +76,8 @@ class CoursesFragment : Fragment() {
                             matchingCourses,
                             "Period 1",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -92,7 +97,8 @@ class CoursesFragment : Fragment() {
                             matchingCourses,
                             "Period 2",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -107,12 +113,14 @@ class CoursesFragment : Fragment() {
                             continue
                         }
                         matchingCourses = (document.getString("name")).toString()
+
                         val studyPeriod = StudyPeriod(
                             FIRST_COURSE,
                             matchingCourses,
                             "Period 3",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 
@@ -126,13 +134,16 @@ class CoursesFragment : Fragment() {
                             LOOP_VARIABLE += 1
                             continue
                         }
+
                         matchingCourses = (document.getString("name")).toString()
+
                         val studyPeriod = StudyPeriod(
                             FIRST_COURSE,
                             matchingCourses,
                             "Period 4",
                             FIRST_COURSE_ID,
-                            course2_id = document.id
+                            course2_id = document.id,
+                            year = document.getString("year").toString()
                         )
                         dataset.add(studyPeriod)
 

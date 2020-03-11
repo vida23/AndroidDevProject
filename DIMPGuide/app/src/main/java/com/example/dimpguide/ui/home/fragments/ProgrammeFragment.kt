@@ -18,7 +18,6 @@ import com.example.dimpguide.ActingMainActivity
 import com.example.dimpguide.CoursesActivity
 
 import com.example.dimpguide.R
-import com.example.dimpguide.ui.home.home.HomeFragment
 import kotlinx.android.synthetic.main.programme_fragment.*
 import kotlinx.android.synthetic.main.programme_fragment.view.*
 
