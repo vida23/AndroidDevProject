@@ -65,6 +65,7 @@
 
     <string name="questionSubmitted">Your question has been submitted!</string>
     <string name="course_preknow">Required preknowledge for the course</string>
+    <string name="spalshscreen">spalshScreen</string>
 
 
 </resources>

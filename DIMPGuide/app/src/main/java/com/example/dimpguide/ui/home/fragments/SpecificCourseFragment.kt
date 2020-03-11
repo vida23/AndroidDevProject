@@ -31,9 +31,7 @@ class SpecificCourseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.specific_course_fragment, container, false)
-        root.findViewById<TextView>(R.id.Course).apply {
-            //activity!!.applicationContext.text = name
-        }
+
 
         val name = arguments?.getString("name")
         val course_id = arguments?.getString("course_id")
@@ -41,6 +39,9 @@ class SpecificCourseFragment : Fragment() {
         var avgRating: Long
         val givenRate = root.findViewById<RatingBar>(R.id.CourseRatingBar)
 
+        root.findViewById<TextView>(R.id.Course).apply {
+            text = name
+        }
 
         val docRef = db.collection("courses").document(course_id.toString())
         docRef.get()

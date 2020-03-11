@@ -217,7 +217,7 @@ class CoursesFragment : Fragment() {
 
         if (FirebaseAuth.getInstance().currentUser != null){
             setOptionalCourses()
-            sleep(200)
+            sleep(800)
             getCourses()
         }else{
             getCourses()

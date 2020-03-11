@@ -12,7 +12,7 @@
         <activity
             android:name=".ActingMainActivity"
             android:label="@string/title_activity_acting_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GoodToKnowActivity" />
         <activity android:name=".AskActivity" />
         <activity android:name=".FAQActivity" />
