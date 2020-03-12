@@ -87,10 +87,6 @@ class CourseRecyclerViewAdapter(
 
             }
         }
-
-        companion object {
-            private val COURSE_KEY = "COURSE"
-        }
     }
 
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.dimpguide.DbHandler.Companion.db
 import com.example.dimpguide.R
@@ -36,14 +37,15 @@ class CourseMaterialFragment : Fragment() {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     root.findViewById<TextView>(R.id.NumberOfHp).apply {
-                        this.text = document.get("hp").toString()
+                        this.text = document.get("hp").toString() + "hp"
                     }
                     root.findViewById<TextView>(R.id.courseDescription).apply {
                         this.text = document.get("des").toString()
                     }
                     root.findViewById<TextView>(R.id.CoursePreknowledge).apply {
-                        this.text = document.get("pre").toString()
+                        this.text = getString(R.string.course_preknow) + ": "  + document.get("pre").toString()
                     }
+                    root.findViewById<ProgressBar>(R.id.progressBarCourseMaterial).visibility = View.INVISIBLE
                 }
 
             }

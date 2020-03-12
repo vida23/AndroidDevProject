@@ -69,9 +69,14 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val id = v?.id
-        if (id == R.id.yearOneButton) {
+        var chosenProgram = spinner.selectedItem.toString()
 
-            val chosenProgram = spinner.selectedItem.toString()
+        if(chosenProgram == EMBEDDED_SYSTEMS_ENG){
+            chosenProgram = EMBEDDED_SYSTEMS
+        }else if(chosenProgram == SOFTWARE_DEVELOPMENT_ENG){
+            chosenProgram = SOFTWARE_DEVELOPMENT
+        }
+        if (id == R.id.yearOneButton) {
 
             val bundle = bundleOf(
                 "Program" to chosenProgram,
@@ -83,15 +88,12 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
 
         } else if (id == R.id.yearTwoButton) {
 
-            val chosenProgram = spinner.selectedItem.toString()
-
             var bundle = bundleOf(
                 "Program" to chosenProgram,
                 "Year" to "2"
             )
             findNavController().navigate(R.id.coursesFragment,bundle)
         } else if (id == R.id.yearThreeButton) {
-            val chosenProgram = spinner.selectedItem.toString()
 
             var bundle = bundleOf(
                 "Program" to chosenProgram,
@@ -99,6 +101,12 @@ class ProgrammeFragment : Fragment(), View.OnClickListener {
             )
             findNavController().navigate(R.id.coursesFragment,bundle)
         }
+    }
+    companion object{
+        const val SOFTWARE_DEVELOPMENT = "Mjukvaruutveckling och mobila plattformar"
+        const val EMBEDDED_SYSTEMS  = "Inbyggda system"
+        const val SOFTWARE_DEVELOPMENT_ENG = "Software Development"
+        const val EMBEDDED_SYSTEMS_ENG = "Embedded Systems"
     }
 
 }

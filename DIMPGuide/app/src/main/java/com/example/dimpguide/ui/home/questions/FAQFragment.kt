@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dimpguide.DbHandler
@@ -56,11 +58,16 @@ class FAQFragment : Fragment() {
                     layoutManager = viewManager
 
                     adapter = viewAdapter
+
+                    root.findViewById<ProgressBar>(R.id.progressBarFAQ).visibility = View.INVISIBLE
                 }
 
             }
             .addOnFailureListener {exception ->
                 Log.w("Cannot find file", "Error getting document", exception)
+
+                root.findViewById<ProgressBar>(R.id.progressBarFAQ).visibility = View.INVISIBLE
+                Toast.makeText(context,"Could not fetch the data",Toast.LENGTH_SHORT).show()
 
             }
 

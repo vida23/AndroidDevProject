@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.example.dimpguide.DbHandler
 
@@ -31,6 +28,8 @@ class AskFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_ask, container, false)
+        val progressBar = root.findViewById<ProgressBar>(R.id.progressBarAsk)
+        progressBar.visibility = View.INVISIBLE
 
         val subjectErrorText = root.findViewById<TextView>(R.id.subjectErrorText)
         val submitButton = root.findViewById<Button>(R.id.submitButton)
@@ -41,9 +40,19 @@ class AskFragment : Fragment() {
                 "question" to enterQuestionText.text.toString()
             )
             DbHandler.db.collection("FAQ")
-                .add(questionData)
-            findNavController().navigate(R.id.specificCourseFragment)
-            Toast.makeText(activity!!.applicationContext,getString(R.string.questionSubmitted), Toast.LENGTH_LONG).show()
+                .add(questionData).apply {
+                    progressBar.visibility = View.VISIBLE
+                }
+                .addOnSuccessListener {
+
+                    progressBar.visibility = View.INVISIBLE
+
+                    fragmentManager!!.popBackStack()
+
+                    Toast.makeText(activity!!.applicationContext,getString(R.string.questionSubmitted), Toast.LENGTH_LONG).show()
+
+
+                }
         }
 
         root.findViewById<EditText>(R.id.subjectText).addTextChangedListener(object: TextWatcher {

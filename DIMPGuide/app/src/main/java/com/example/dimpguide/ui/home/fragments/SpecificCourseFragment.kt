@@ -47,7 +47,6 @@ class SpecificCourseFragment : Fragment() {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-
                     givenRate.rating = document.getLong("avgRate")!!.toFloat()
                     Log.d("stars", document.getLong("avgRate").toString())
                     if (FirebaseAuth.getInstance().currentUser != null && document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid) == false) {

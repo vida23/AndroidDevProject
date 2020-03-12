@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,12 +67,7 @@ class CoursesFragment : Fragment() {
 
         val chosenYear = arguments?.getString("Year")
         val dataset: MutableList<StudyPeriod> = ArrayList()
-
-        if (EMBEDDED_SYSTEMS != getString(R.string.embedded_systems)) {
-            chosenProgram = "Mjukvaruutveckling och mobila plattformar"
-        } else if ( SOFTWARE_DEVELOPMENT!= getString(R.string.software_development)) {
-            chosenProgram = "Inbyggda system"
-        }
+        
 
         Log.i("database", chosenProgram.toString())
 
@@ -193,6 +190,8 @@ class CoursesFragment : Fragment() {
                 viewManager = LinearLayoutManager(context)
                 viewAdapter = CourseRecyclerViewAdapter(dataset, context!!)
 
+
+
                 coursesRecyclerView =
                     view!!.findViewById<RecyclerView>(R.id.coursesRecyclerView).apply {
                         setHasFixedSize(true)
@@ -200,6 +199,8 @@ class CoursesFragment : Fragment() {
                         layoutManager = viewManager
 
                         adapter = viewAdapter
+
+                        view!!.findViewById<ProgressBar>(R.id.progressBarCourses).visibility = View.INVISIBLE
                     }
             }
 
