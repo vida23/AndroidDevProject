@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">DIMPGuide</string>
+    <string name="app_title">DIMP Guide</string>
+    <string name="continue_without_login">Continue without login</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_up_or_sign_in">Sign up/Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">E-mail</string>
+    <string name="year">Year</string>
+    <string name="Programme">Programme</string>
+    <string name="Year1">Year 1</string>
+    <string name="Year2">Year 2</string>
+    <string name="Year3">Year 3</string>
+    <string name="software_development">Software Development</string>
+    <string name="embedded_systems">Embedded Systems</string>
+    <string-array name="Programmes">
+        <item>Software Development</item>
+        <item>Embedded Systems</item>
+    </string-array>
+    <string-array name="Years">
+        <item>Year 1</item>
+        <item>Year 2</item>
+        <item>Year 3</item>
+    </string-array>
+    <string name="Rating">Feel free to rate the course</string>
+    <string name="CourseMaterial">Course Material</string>
+    <string name="GoodToKnow">Click here for more information about this course</string>
+    <string name="FAQ">FAQ</string>
+    <string name="Ask">Ask</string>
+    <string name="EnterAQuestion">Enter a question</string>
+    <string name="Subject">Subject</string>
+    <string name="Submit">Submit</string>
+    <string name="ToLongSubject">To long subject</string>
+    <string name="ToShortSubject">To short subject</string>
+    <string name="ToShortQuestion">To short question</string>
+    <string name="toLongQuestion">To long question</string>
+    <string name="toShortUsername">To short username</string>
+    <string name="toShortPassword">To short password</string>
+    <string name="emailErrorNoAt">You need valid e-mail (@)</string>
+    <string name="back_to_course">Back to course</string>
+    <string name="ratesubmit">Submit rating</string>
+    <string name="ThankYouRating">Thanks for the rating!</string>
+    <string name="QuestionBeenSubmitted">Your question has been submitted!</string>
+    <string name="title_activity_acting_main">ActingMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">DIMP Guide</string>
+    <string name="nav_header_subtitle">Nice</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_programme">Programme</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="optional_sign_in">Sign in to pick an optional</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="specific_course">Course</string>
+
+    <string name="questionSubmitted">Your question has been submitted!</string>
+    <string name="course_preknow">Required preknowledge for the course</string>
+
+    <string name="spalshscreen">spalshScreen</string>
+
+
+</resources>

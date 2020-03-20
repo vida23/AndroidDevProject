@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DIMPGuiden</string>
+    <string name="Programme">Program</string>
+    <string name="app_title">DIMP Guiden</string>
+    <string name="continue_without_login">Fortsätt utan att logga in</string>
+    <string name="email">E-mail</string>
+    <string name="password">Lösenord</string>
+    <string name="sign_in">Skapa konto</string>
+    <string name="sign_up">Logga in</string>
+    <string name="username">Användarnamn</string>
+    <string name="year">Årskurs</string>
+    <string name="Year1">Årskurs 1</string>
+    <string name="Year2">Årskurs 2</string>
+    <string name="Year3">Årskurs 3</string>
+    <string-array name="Programmes">
+        <item>Mjukvaruutveckling och mobila plattformar</item>
+        <item>Inbyggda system</item>
+    </string-array>
+    <string-array name="Years">
+        <item>Årskurs 1</item>
+        <item>Årskurs 2</item>
+        <item>Årskurs 3</item>
+    </string-array>
+    <string name="CourseMaterial">Kurs material</string>
+    <string name="GoodToKnow">Klicka här för mer information om kursen</string>
+    <string name="Rating">Lämmna gärna ett betyg på kursen</string>
+    <string name="FAQ">FAQ</string>
+    <string name="Ask">Fråga</string>
+    <string name="EnterAQuestion">Fråga en fråga</string>
+    <string name="Subject">Ämne</string>
+    <string name="Submit">Bekräfta</string>
+    <string name="ToLongSubject">För långt ämne</string>
+    <string name="ToShortSubject">För kort ämne</string>
+    <string name="ToShortQuestion">För kort fråga</string>
+    <string name="toLongQuestion">För lång fråga</string>
+    <string name="emailErrorNoAt">Du behöver en giltig e-mail (@)</string>
+    <string name="toShortPassword">För kort lösenord</string>
+    <string name="toShortUsername">För kort Användarnamn</string>
+    <string name="sign_out">Logga ut</string>
+    <string name="sign_up_or_sign_in">Logga in/Skapa Konto</string>
+    <string name="back_to_course">Tillbaka till kursen</string>
+    <string name="ratesubmit">Sätt betyg</string>
+    <string name="ThankYouRating">Tack för din feedback!</string>
+    <string name="QuestionBeenSubmitted">Din fråga har mottagits!</string>
+    <string name="course_preknow">Förkunskaper som krävs inför kursen</string>
+    <string name="action_settings">Inställningar</string>
+    <string name="hello_blank_fragment">Hej blanka fragmentet</string>
+    <string name="menu_home">Hem</string>
+    <string name="menu_programme">Program</string>
+    <string name="menu_send">Skicka</string>
+    <string name="menu_share">Dela</string>
+    <string name="menu_slideshow">"Slideshow "</string>
+    <string name="menu_tools">Verktyg</string>
+    <string name="nav_header_desc">Navigation</string>
+    <string name="nav_header_subtitle">Nice</string>
+    <string name="nav_header_title">DIMP Guiden</string>
+    <string name="navigation_drawer_close">Stäng navigationsmeny</string>
+    <string name="navigation_drawer_open">Öppna navigationsmeny</string>
+    <string name="questionSubmitted">Din fråga har blivit tillagd</string>
+    <string name="specific_course">Kurs</string>
+    <string name="title_activity_acting_main">LåstsasAktivitet</string>
+    <string name="optional_sign_in">Logga in för att välja en kurs</string>
+
+</resources>
