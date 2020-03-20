@@ -29,23 +29,23 @@ class CourseMaterialFragment : Fragment() {
         val courseName = arguments?.getString("name")
         val courseId = arguments?.getString("course_id")
 
-        val courseTitle = root.findViewById<TextView>(R.id.CourseTitle)
+        val courseTitle = root.findViewById<TextView>(R.id.course_title)
         courseTitle.text = courseName
 
         db.collection("courses").document(courseId.toString())
             .get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    root.findViewById<TextView>(R.id.NumberOfHp).apply {
+                    root.findViewById<TextView>(R.id.number_of_hp).apply {
                         this.text = document.get("hp").toString() + "hp"
                     }
-                    root.findViewById<TextView>(R.id.courseDescription).apply {
+                    root.findViewById<TextView>(R.id.course_description).apply {
                         this.text = document.get("des").toString()
                     }
-                    root.findViewById<TextView>(R.id.CoursePreknowledge).apply {
+                    root.findViewById<TextView>(R.id.course_preknowledge).apply {
                         this.text = getString(R.string.course_preknow) + ": "  + document.get("pre").toString()
                     }
-                    root.findViewById<ProgressBar>(R.id.progressBarCourseMaterial).visibility = View.INVISIBLE
+                    root.findViewById<ProgressBar>(R.id.progress_bar_course_material).visibility = View.INVISIBLE
                 }
 
             }

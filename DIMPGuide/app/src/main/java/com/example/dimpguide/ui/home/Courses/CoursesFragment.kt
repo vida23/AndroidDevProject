@@ -50,8 +50,6 @@ class CoursesFragment : Fragment() {
                             optionalCourseOne = doc.getString("optionalCourseOne").toString()
                             optionalCourseTwo = doc.getString("optionalCourseTwo").toString()
                         }
-                        Log.i("database", "from user collection " + optionalCourseOne)
-                        Log.i("database", "from user collection " + optionalCourseTwo)
                     }
                 }
 
@@ -63,7 +61,7 @@ class CoursesFragment : Fragment() {
 
     fun getCourses(){
 
-        var chosenProgram = arguments?.getString("Program")
+        val chosenProgram = arguments?.getString("Program")
 
         val chosenYear = arguments?.getString("Year")
         val dataset: MutableList<StudyPeriod> = ArrayList()
@@ -214,14 +212,14 @@ class CoursesFragment : Fragment() {
 
 
                 coursesRecyclerView =
-                    view!!.findViewById<RecyclerView>(R.id.coursesRecyclerView).apply {
+                    view!!.findViewById<RecyclerView>(R.id.courses_recycler_view).apply {
                         setHasFixedSize(true)
 
                         layoutManager = viewManager
 
                         adapter = viewAdapter
 
-                        view!!.findViewById<ProgressBar>(R.id.progressBarCourses).visibility = View.INVISIBLE
+                        view!!.findViewById<ProgressBar>(R.id.progress_bar_courses).visibility = View.INVISIBLE
                     }
             }
 
@@ -239,8 +237,9 @@ class CoursesFragment : Fragment() {
 
         if (FirebaseAuth.getInstance().currentUser != null){
             setOptionalCourses()
-            sleep(800)
+            sleep(400)
             getCourses()
+            sleep(400)
         }else{
             getCourses()
         }

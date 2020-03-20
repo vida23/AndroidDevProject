@@ -17,19 +17,19 @@ class FAQRecyclerViewAdapter(private val dataset: MutableList<FAQ>,private val c
 
         fun bindFAQ(FAQ: FAQ,context: Context){
             if(isAnswerShowing == true){
-                view.Answer.visibility = View.INVISIBLE
+                view.answer.visibility = View.INVISIBLE
                 isAnswerShowing = false
             }
-            view.Question.text = FAQ.question
-            view.toggleButton.setOnClickListener {
-                if(view.Answer.visibility == View.VISIBLE){
-                    view.Answer.visibility = View.INVISIBLE
-                    view.Answer.text = ""
-                    view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0)
+            view.question.text = FAQ.question
+            view.toggle_button.setOnClickListener {
+                if(view.answer.visibility == View.VISIBLE){
+                    view.answer.visibility = View.INVISIBLE
+                    view.answer.text = ""
+                    view.answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0)
                 }else{
-                    view.Answer.visibility = View.VISIBLE
-                    view.Answer.text = FAQ.answer
-                    view.Answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    view.answer.visibility = View.VISIBLE
+                    view.answer.text = FAQ.answer
+                    view.answer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT)
                 }
             }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".ProgrammeYearActivity">
         <Button
-            android:id="@+id/optionalOne"
+            android:id="@+id/optional_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Matematisk statistik"
@@ -21,27 +21,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
         <Button
-            android:id="@+id/optionalTwo"
+            android:id="@+id/optional_two"
             android:text="User Research"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/optionalOne"/>
+            app:layout_constraintTop_toBottomOf="@id/optional_one"/>
         <Button
-            android:id="@+id/optionalThree"
+            android:id="@+id/optional_three"
             android:text="Al/Machine Learning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/optionalTwo"
+            app:layout_constraintTop_toBottomOf="@id/optional_two"
             />
         <Button
-            android:id="@+id/optionalFour"
+            android:id="@+id/optional_four"
             android:text="Information Security"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@id/optionalThree"
+            app:layout_constraintTop_toBottomOf="@id/optional_three"
             />
 
 

@@ -37,9 +37,9 @@ class SpecificCourseFragment : Fragment() {
         val course_id = arguments?.getString("course_id")
 
         var avgRating: Long
-        val givenRate = root.findViewById<RatingBar>(R.id.CourseRatingBar)
+        val givenRate = root.findViewById<RatingBar>(R.id.course_rating_bar)
 
-        root.findViewById<TextView>(R.id.Course).apply {
+        root.findViewById<TextView>(R.id.course).apply {
             text = name
         }
 
@@ -52,7 +52,7 @@ class SpecificCourseFragment : Fragment() {
                     if (FirebaseAuth.getInstance().currentUser != null && document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid) == false) {
                         Log.d("this", document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid).toString())
 
-                        rateSubmitButton.setOnClickListener {
+                        rate_submit_button.setOnClickListener {
 
                             val ratingCount = document.getLong("ratingCount")!! + 1
                             docRef.update("ratingCount", ratingCount)
@@ -70,15 +70,15 @@ class SpecificCourseFragment : Fragment() {
 
                             Toast.makeText(
                                 activity!!.applicationContext,
-                                getString(R.string.ThankYouRating),
+                                getString(R.string.thank_you_rating),
                                 Toast.LENGTH_LONG
                             ).show()
-                            rateSubmitButton.isEnabled = false
+                            rate_submit_button.isEnabled = false
                             givenRate.isEnabled = false
                         }
 
                     } else {
-                        rateSubmitButton.isEnabled = false
+                        rate_submit_button.isEnabled = false
                         givenRate.isEnabled = false
                     }
 
@@ -94,17 +94,17 @@ class SpecificCourseFragment : Fragment() {
 
 
 
-        root.findViewById<Button>(R.id.FAQButton)
+        root.findViewById<Button>(R.id.FAQ_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.FAQFragment)
             }
 
-        root.findViewById<Button>(R.id.AskButton)
+        root.findViewById<Button>(R.id.ask_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.askFragment)
             }
 
-        root.findViewById<Button>(R.id.GoodToKnowButton)
+        root.findViewById<Button>(R.id.good_to_know_button)
             .setOnClickListener {
 
                 var bundle = bundleOf(

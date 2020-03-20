@@ -66,25 +66,25 @@ class OptionalCourse : Fragment() {
 
         val courseName = arguments?.getString("name").toString()
 
-        root.findViewById<Button>(R.id.optionalOne)
+        root.findViewById<Button>(R.id.optional_one)
             .setOnClickListener {
                 val pickCourseId = "Matematisk statistik"
                 setOptionalCourse(pickCourseId,courseName)
 
             }
-        root.findViewById<Button>(R.id.optionalTwo)
+        root.findViewById<Button>(R.id.optional_two)
             .setOnClickListener {
                 val pickCourseId = "User Research"
                 setOptionalCourse(pickCourseId,courseName)
 
             }
-        root.findViewById<Button>(R.id.optionalThree)
+        root.findViewById<Button>(R.id.optional_three)
             .setOnClickListener {
                 val pickCourseId = "AlMachine Learning"
                 setOptionalCourse(pickCourseId,courseName)
 
             }
-        root.findViewById<Button>(R.id.optionalFour)
+        root.findViewById<Button>(R.id.optional_four)
             .setOnClickListener {
                 val pickCourseId = "Information Security"
                 setOptionalCourse(pickCourseId,courseName)

@@ -41,12 +41,12 @@
     <fragment
         android:id="@+id/courseMaterialFragment"
         android:name="com.example.dimpguide.ui.home.courseMaterial.CourseMaterialFragment"
-        android:label="@string/CourseMaterial"
+        android:label="@string/course_material"
         tools:layout="@layout/course_material_fragment" />
     <fragment
         android:id="@+id/askFragment"
         android:name="com.example.dimpguide.ui.home.fragments.AskFragment"
-        android:label="@string/Ask"
+        android:label="@string/ask"
         tools:layout="@layout/fragment_ask" />
     <fragment
         android:id="@+id/FAQFragment"

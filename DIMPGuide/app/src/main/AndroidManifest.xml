@@ -13,13 +13,6 @@
             android:name=".ActingMainActivity"
             android:label="@string/title_activity_acting_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GoodToKnowActivity" />
-        <activity android:name=".AskActivity" />
-        <activity android:name=".FAQActivity" />
-        <activity android:name=".CourseMaterialActivity" />
-        <activity android:name=".Specific_course" />
-        <activity android:name=".CoursesActivity" />
-        <activity android:name=".ProgrammeYearActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity">

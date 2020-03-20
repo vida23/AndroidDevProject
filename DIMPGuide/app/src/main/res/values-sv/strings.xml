@@ -10,9 +10,9 @@
     <string name="sign_up">Logga in</string>
     <string name="username">Användarnamn</string>
     <string name="year">Årskurs</string>
-    <string name="Year1">Årskurs 1</string>
-    <string name="Year2">Årskurs 2</string>
-    <string name="Year3">Årskurs 3</string>
+    <string name="year_one_string">Årskurs 1</string>
+    <string name="year_two_string">Årskurs 2</string>
+    <string name="year_three_string">Årskurs 3</string>
     <string-array name="Programmes">
         <item>Mjukvaruutveckling och mobila plattformar</item>
         <item>Inbyggda system</item>
@@ -22,27 +22,27 @@
         <item>Årskurs 2</item>
         <item>Årskurs 3</item>
     </string-array>
-    <string name="CourseMaterial">Kurs material</string>
-    <string name="GoodToKnow">Klicka här för mer information om kursen</string>
-    <string name="Rating">Lämmna gärna ett betyg på kursen</string>
+    <string name="course_material">Kurs material</string>
+    <string name="good_to_know_text">Klicka här för mer information om kursen</string>
+    <string name="rating">Lämmna gärna ett betyg på kursen</string>
     <string name="FAQ">FAQ</string>
-    <string name="Ask">Fråga</string>
-    <string name="EnterAQuestion">Fråga en fråga</string>
-    <string name="Subject">Ämne</string>
-    <string name="Submit">Bekräfta</string>
-    <string name="ToLongSubject">För långt ämne</string>
-    <string name="ToShortSubject">För kort ämne</string>
-    <string name="ToShortQuestion">För kort fråga</string>
-    <string name="toLongQuestion">För lång fråga</string>
-    <string name="emailErrorNoAt">Du behöver en giltig e-mail (@)</string>
-    <string name="toShortPassword">För kort lösenord</string>
-    <string name="toShortUsername">För kort Användarnamn</string>
+    <string name="ask">Fråga</string>
+    <string name="enter_a_question">Fråga en fråga</string>
+    <string name="subject">Ämne</string>
+    <string name="submit">Bekräfta</string>
+    <string name="to_long_subject">För långt ämne</string>
+    <string name="to_short_subject">För kort ämne</string>
+    <string name="to_short_question">För kort fråga</string>
+    <string name="to_long_question">För lång fråga</string>
+    <string name="email_error_no_at">Du behöver en giltig e-mail (@)</string>
+    <string name="to_short_password">För kort lösenord</string>
+    <string name="to_short_username">För kort Användarnamn</string>
     <string name="sign_out">Logga ut</string>
     <string name="sign_up_or_sign_in">Logga in/Skapa Konto</string>
     <string name="back_to_course">Tillbaka till kursen</string>
-    <string name="ratesubmit">Sätt betyg</string>
-    <string name="ThankYouRating">Tack för din feedback!</string>
-    <string name="QuestionBeenSubmitted">Din fråga har mottagits!</string>
+    <string name="rate_submit_text">Sätt betyg</string>
+    <string name="thank_you_rating">Tack för din feedback!</string>
+    <string name="question_been_submitted">Din fråga har mottagits!</string>
     <string name="course_preknow">Förkunskaper som krävs inför kursen</string>
     <string name="action_settings">Inställningar</string>
     <string name="hello_blank_fragment">Hej blanka fragmentet</string>
@@ -57,7 +57,7 @@
     <string name="nav_header_title">DIMP Guiden</string>
     <string name="navigation_drawer_close">Stäng navigationsmeny</string>
     <string name="navigation_drawer_open">Öppna navigationsmeny</string>
-    <string name="questionSubmitted">Din fråga har blivit tillagd</string>
+    <string name="question_submitted">Din fråga har blivit tillagd</string>
     <string name="specific_course">Kurs</string>
     <string name="title_activity_acting_main">LåstsasAktivitet</string>
     <string name="optional_sign_in">Logga in för att välja en kurs</string>

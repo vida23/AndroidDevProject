@@ -11,7 +11,7 @@
         tools:context=".CoursesActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/coursesRecyclerView"
+            android:id="@+id/courses_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
@@ -21,7 +21,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-            android:id="@+id/RecyclerViewTextView"
+            android:id="@+id/recycler_view_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:gravity="center">
             <ProgressBar
-                android:id="@+id/progressBarCourses"
+                android:id="@+id/progress_bar_courses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

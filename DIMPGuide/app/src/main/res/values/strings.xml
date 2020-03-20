@@ -11,9 +11,9 @@
     <string name="email">E-mail</string>
     <string name="year">Year</string>
     <string name="Programme">Programme</string>
-    <string name="Year1">Year 1</string>
-    <string name="Year2">Year 2</string>
-    <string name="Year3">Year 3</string>
+    <string name="year_one_string">Year 1</string>
+    <string name="year_two_string">Year 2</string>
+    <string name="year_three_string">Year 3</string>
     <string name="software_development">Software Development</string>
     <string name="embedded_systems">Embedded Systems</string>
     <string-array name="Programmes">
@@ -25,25 +25,25 @@
         <item>Year 2</item>
         <item>Year 3</item>
     </string-array>
-    <string name="Rating">Feel free to rate the course</string>
-    <string name="CourseMaterial">Course Material</string>
-    <string name="GoodToKnow">Click here for more information about this course</string>
+    <string name="rating">Feel free to rate the course</string>
+    <string name="course_material">Course Material</string>
+    <string name="good_to_know_text">Click here for more information about this course</string>
     <string name="FAQ">FAQ</string>
-    <string name="Ask">Ask</string>
-    <string name="EnterAQuestion">Enter a question</string>
-    <string name="Subject">Subject</string>
-    <string name="Submit">Submit</string>
-    <string name="ToLongSubject">To long subject</string>
-    <string name="ToShortSubject">To short subject</string>
-    <string name="ToShortQuestion">To short question</string>
-    <string name="toLongQuestion">To long question</string>
-    <string name="toShortUsername">To short username</string>
-    <string name="toShortPassword">To short password</string>
-    <string name="emailErrorNoAt">You need valid e-mail (@)</string>
+    <string name="ask">Ask</string>
+    <string name="enter_a_question">Enter a question</string>
+    <string name="subject">Subject</string>
+    <string name="submit">Submit</string>
+    <string name="to_long_subject">To long subject</string>
+    <string name="to_short_subject">To short subject</string>
+    <string name="to_short_question">To short question</string>
+    <string name="to_long_question">To long question</string>
+    <string name="to_short_username">To short username</string>
+    <string name="to_short_password">To short password</string>
+    <string name="email_error_no_at">You need valid e-mail (@)</string>
     <string name="back_to_course">Back to course</string>
-    <string name="ratesubmit">Submit rating</string>
-    <string name="ThankYouRating">Thanks for the rating!</string>
-    <string name="QuestionBeenSubmitted">Your question has been submitted!</string>
+    <string name="rate_submit_text">Submit rating</string>
+    <string name="thank_you_rating">Thanks for the rating!</string>
+    <string name="question_been_submitted">Your question has been submitted!</string>
     <string name="title_activity_acting_main">ActingMainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -65,7 +65,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="specific_course">Course</string>
 
-    <string name="questionSubmitted">Your question has been submitted!</string>
+    <string name="question_submitted">Your question has been submitted!</string>
     <string name="course_preknow">Required preknowledge for the course</string>
 
     <string name="spalshscreen">spalshScreen</string>

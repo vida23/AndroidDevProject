@@ -10,7 +10,5 @@ class DbHandler(){
     companion object {
         val db = FirebaseFirestore.getInstance()
 
-        val fUser = FirebaseAuth.getInstance().currentUser
-
     }
 }

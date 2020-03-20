@@ -14,7 +14,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.activity_specific_course.view.*
 
 class SignupActivity : AppCompatActivity() {
 
@@ -86,7 +85,7 @@ class SignupActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s!!.length < MIN_USERNAME_LENGTH) {
-                    usernameErrorText.text = getString(R.string.toShortUsername)
+                    usernameErrorText.text = getString(R.string.to_short_username)
                     signUpButton.isEnabled = false
                 } else {
                     signUpButton.isEnabled = true
@@ -110,7 +109,7 @@ class SignupActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s!!.length < MIN_PASSWORD_LENGTH) {
-                    passwordErrorText.text = getString(R.string.toShortPassword)
+                    passwordErrorText.text = getString(R.string.to_short_password)
                     signUpButton.isEnabled = false
                 } else {
                     signUpButton.isEnabled = true
@@ -134,7 +133,7 @@ class SignupActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (!s!!.contains("@")) {
-                    emailErrorText.text = getString(R.string.emailErrorNoAt)
+                    emailErrorText.text = getString(R.string.email_error_no_at)
                     signUpButton.isEnabled = false
                 } else {
                     signUpButton.isEnabled = true

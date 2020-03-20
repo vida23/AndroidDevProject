@@ -52,21 +52,21 @@ class FAQFragment : Fragment() {
                 viewAdapter = FAQRecyclerViewAdapter(dataset,activity!!.applicationContext)
 
 
-                root.findViewById<RecyclerView>(R.id.FAQRecyclerView).apply{
+                root.findViewById<RecyclerView>(R.id.FAQ_recycler_view).apply{
                     setHasFixedSize(true)
 
                     layoutManager = viewManager
 
                     adapter = viewAdapter
 
-                    root.findViewById<ProgressBar>(R.id.progressBarFAQ).visibility = View.INVISIBLE
+                    root.findViewById<ProgressBar>(R.id.progress_bar_FAQ).visibility = View.INVISIBLE
                 }
 
             }
             .addOnFailureListener {exception ->
                 Log.w("Cannot find file", "Error getting document", exception)
 
-                root.findViewById<ProgressBar>(R.id.progressBarFAQ).visibility = View.INVISIBLE
+                root.findViewById<ProgressBar>(R.id.progress_bar_FAQ).visibility = View.INVISIBLE
                 Toast.makeText(context,"Could not fetch the data",Toast.LENGTH_SHORT).show()
 
             }
