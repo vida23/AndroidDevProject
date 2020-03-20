@@ -46,7 +46,7 @@ class CoursesFragment : Fragment() {
             .addOnSuccessListener { docs ->
                 if (!docs.isEmpty) {
                     for (doc in docs) {
-                        if (doc.getString("optionalCourseOne").toString() != null) {
+                        if (doc.getString("optionalCourseOne").toString() != null || doc.getString("optionalCourseTwo").toString() != null ) {
                             optionalCourseOne = doc.getString("optionalCourseOne").toString()
                             optionalCourseTwo = doc.getString("optionalCourseTwo").toString()
                         }
@@ -98,17 +98,29 @@ class CoursesFragment : Fragment() {
                             ) == "3" && optionalCourseOne.length > 1
                         ) {
                             matchingCourses = optionalCourseOne
+
+                            val studyPeriod = StudyPeriod(
+                                FIRST_COURSE,
+                                matchingCourses,
+                                "Period 1",
+                                FIRST_COURSE_ID,
+                                course2_id = optionalCourseOne,
+                                year = document.getString("year").toString()
+                            )
+                            dataset.add(studyPeriod)
+                        }else{
+                            val studyPeriod = StudyPeriod(
+                                FIRST_COURSE,
+                                matchingCourses,
+                                "Period 1",
+                                FIRST_COURSE_ID,
+                                course2_id = document.id,
+                                year = document.getString("year").toString()
+                            )
+                            dataset.add(studyPeriod)
                         }
 
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 1",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
+
 
                         LOOP_VARIABLE = 0
 
@@ -126,17 +138,26 @@ class CoursesFragment : Fragment() {
                             ) == "3" && optionalCourseTwo.length > 1
                         ) {
                             matchingCourses = optionalCourseTwo
+                            val studyPeriod = StudyPeriod(
+                                FIRST_COURSE,
+                                matchingCourses,
+                                "Period 2",
+                                FIRST_COURSE_ID,
+                                course2_id = optionalCourseTwo,
+                                year = document.getString("year").toString()
+                            )
+                            dataset.add(studyPeriod)
+                        }else{
+                            val studyPeriod = StudyPeriod(
+                                FIRST_COURSE,
+                                matchingCourses,
+                                "Period 2",
+                                FIRST_COURSE_ID,
+                                course2_id = document.id,
+                                year = document.getString("year").toString()
+                            )
+                            dataset.add(studyPeriod)
                         }
-
-                        val studyPeriod = StudyPeriod(
-                            FIRST_COURSE,
-                            matchingCourses,
-                            "Period 2",
-                            FIRST_COURSE_ID,
-                            course2_id = document.id,
-                            year = document.getString("year").toString()
-                        )
-                        dataset.add(studyPeriod)
 
                         LOOP_VARIABLE = 0
 

@@ -60,5 +60,6 @@
     <string name="questionSubmitted">Din fråga har blivit tillagd</string>
     <string name="specific_course">Kurs</string>
     <string name="title_activity_acting_main">LåstsasAktivitet</string>
+    <string name="optional_sign_in">Logga in för att välja en kurs</string>
 
 </resources>

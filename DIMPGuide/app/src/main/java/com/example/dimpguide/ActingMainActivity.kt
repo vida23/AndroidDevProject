@@ -41,13 +41,9 @@ open class ActingMainActivity : AppCompatActivity() {
 
         val signInOut = navView.menu.findItem(R.id.signOutFragment)
 
-        if (FirebaseAuth.getInstance().currentUser != null){
-
+        if (FirebaseAuth.getInstance().currentUser == null){
+            signInOut.title = getString(R.string.sign_up_or_sign_in)
         }
-        else{
-            signInOut.title = getString(R.string.sign_in)
-        }
-
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)

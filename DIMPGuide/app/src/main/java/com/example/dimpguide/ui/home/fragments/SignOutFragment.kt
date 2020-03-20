@@ -30,8 +30,6 @@ class SignOutFragment : Fragment() {
             activity!!.finish()
         }
         else{
-            val intent = Intent(activity!!.applicationContext, SignInActivity::class.java)
-            startActivity(intent)
             activity!!.finish()
         }
 

@@ -2,6 +2,8 @@ package com.example.dimpguide
 
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings.Global.getInt
+import android.provider.Settings.Global.getString
 import android.util.Log
 import androidx.navigation.findNavController
 import android.view.LayoutInflater
@@ -68,9 +70,13 @@ class CourseRecyclerViewAdapter(
                 intent.putExtra("course_id",studyPeriod.course2_id)
                 startActivity(context,intent,null)*/
                 if ((studyPeriod.course2 == "Valbar 2" || studyPeriod.course2 == "Valbar 1") && FirebaseAuth.getInstance().currentUser != null) {
-                    view.findNavController().navigate(R.id.optionalCourseFragment)
+                    var bundle = bundleOf(
+                        "name" to studyPeriod.course2
+                    )
+                    view.findNavController().navigate(R.id.optionalCourseFragment, bundle)
+
                 } else if ((studyPeriod.course2 == "Valbar 1" || studyPeriod.course2 == "Valbar 2") && FirebaseAuth.getInstance().currentUser == null){
-                    Toast.makeText(context, "Sign in", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(view.context, getString(context.contentResolver,(R.string.optional_sign_in.toString())), Toast.LENGTH_SHORT).show()
                 }
                 else{
 
