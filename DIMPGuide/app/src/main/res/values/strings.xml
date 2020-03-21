@@ -52,6 +52,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="optional_course_picked"> You already picked that course</string>
+    <string name="FAQ_no_data">Could not fetch the data</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_programme">Programme</string>
     <string name="menu_slideshow">Slideshow</string>

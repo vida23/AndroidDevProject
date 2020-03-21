@@ -22,12 +22,14 @@
         <item>Årskurs 2</item>
         <item>Årskurs 3</item>
     </string-array>
+    <string name="FAQ_no_data">Kan inte hämta data</string>
     <string name="course_material">Kurs material</string>
     <string name="good_to_know_text">Klicka här för mer information om kursen</string>
     <string name="rating">Lämmna gärna ett betyg på kursen</string>
     <string name="FAQ">FAQ</string>
     <string name="ask">Fråga</string>
     <string name="enter_a_question">Fråga en fråga</string>
+    <string name="optional_course_picked"> Kursen redan valt</string>
     <string name="subject">Ämne</string>
     <string name="submit">Bekräfta</string>
     <string name="to_long_subject">För långt ämne</string>

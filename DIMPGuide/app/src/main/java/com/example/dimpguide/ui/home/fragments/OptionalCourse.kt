@@ -35,14 +35,14 @@ class OptionalCourse : Fragment() {
                             .addOnSuccessListener {
                                 if (courseName == "Valbar 1") {
                                     if (courseId == doc.getString("optionalCourseTwo")){
-                                        Toast.makeText(activity?.applicationContext, "Course already picked", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(activity?.applicationContext, getString(R.string.optional_course_picked), Toast.LENGTH_SHORT).show()
                                     }else{
                                         docRef.update("optionalCourseOne", courseId)
                                         fragmentManager!!.popBackStack()
                                     }
                                 } else {
                                     if (courseId == doc.getString("optionalCourseOne")){
-                                        Toast.makeText(activity!!.applicationContext, "Course already picked", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(activity!!.applicationContext, getString(R.string.optional_course_picked), Toast.LENGTH_SHORT).show()
                                     }else{
                                         docRef.update("optionalCourseTwo", courseId)
                                         fragmentManager!!.popBackStack()

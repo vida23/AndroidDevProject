@@ -67,7 +67,7 @@ class FAQFragment : Fragment() {
                 Log.w("Cannot find file", "Error getting document", exception)
 
                 root.findViewById<ProgressBar>(R.id.progress_bar_FAQ).visibility = View.INVISIBLE
-                Toast.makeText(context,"Could not fetch the data",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,getString(R.string.FAQ_no_data),Toast.LENGTH_SHORT).show()
 
             }
 

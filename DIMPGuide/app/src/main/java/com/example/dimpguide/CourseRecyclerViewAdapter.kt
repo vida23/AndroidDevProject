@@ -76,7 +76,7 @@ class CourseRecyclerViewAdapter(
                     view.findNavController().navigate(R.id.optionalCourseFragment, bundle)
 
                 } else if ((studyPeriod.course2 == "Valbar 1" || studyPeriod.course2 == "Valbar 2") && FirebaseAuth.getInstance().currentUser == null){
-                    Toast.makeText(view.context, getString(context.contentResolver,(R.string.optional_sign_in.toString())), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(view.context, "", Toast.LENGTH_SHORT).show()
                 }
                 else{
 
