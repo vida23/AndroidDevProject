@@ -66,6 +66,7 @@ class OptionalCourse : Fragment() {
 
         val courseName = arguments?.getString("name").toString()
 
+
         root.findViewById<Button>(R.id.optional_one)
             .setOnClickListener {
                 val pickCourseId = "Matematisk statistik"

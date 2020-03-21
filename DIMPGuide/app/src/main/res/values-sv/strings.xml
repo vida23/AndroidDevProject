@@ -6,8 +6,8 @@
     <string name="continue_without_login">Fortsätt utan att logga in</string>
     <string name="email">E-mail</string>
     <string name="password">Lösenord</string>
-    <string name="sign_in">Skapa konto</string>
-    <string name="sign_up">Logga in</string>
+    <string name="sign_in">Logga in</string>
+    <string name="sign_up">Skapa konto</string>
     <string name="username">Användarnamn</string>
     <string name="year">Årskurs</string>
     <string name="year_one_string">Årskurs 1</string>
