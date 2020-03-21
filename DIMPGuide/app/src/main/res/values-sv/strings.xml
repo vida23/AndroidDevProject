@@ -41,6 +41,9 @@
     <string name="to_short_username">För kort Användarnamn</string>
     <string name="sign_out">Logga ut</string>
     <string name="sign_up_or_sign_in">Logga in/Skapa Konto</string>
+
+    <string name="specific_course_on_ask">Logga in för att ställa en fråga</string>
+
     <string name="back_to_course">Tillbaka till kursen</string>
     <string name="rate_submit_text">Sätt betyg</string>
     <string name="thank_you_rating">Tack för din feedback!</string>

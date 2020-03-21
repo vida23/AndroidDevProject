@@ -54,6 +54,7 @@
 
     <string name="optional_course_picked"> You already picked that course</string>
     <string name="FAQ_no_data">Could not fetch the data</string>
+    <string name="specific_course_on_ask">Sign in to ask a question</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_programme">Programme</string>

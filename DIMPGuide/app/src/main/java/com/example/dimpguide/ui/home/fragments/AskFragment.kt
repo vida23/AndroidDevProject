@@ -33,6 +33,8 @@ class AskFragment : Fragment() {
         val enterQuestionText = root.findViewById<EditText>(R.id.enter_question_text)
         val subjectText = root.findViewById<EditText>(R.id.subject_text)
 
+        submitButton.isEnabled = false
+
         submitButton.setOnClickListener {
             val questionData = hashMapOf(
                 "question" to enterQuestionText.text.toString()

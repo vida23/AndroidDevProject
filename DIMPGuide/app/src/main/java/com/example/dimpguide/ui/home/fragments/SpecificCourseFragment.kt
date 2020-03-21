@@ -43,14 +43,24 @@ class SpecificCourseFragment : Fragment() {
             text = name
         }
 
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            root.findViewById<Button>(R.id.ask_button).isEnabled = false
+        }
+
         val docRef = db.collection("courses").document(course_id.toString())
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     givenRate.rating = document.getLong("avgRate")!!.toFloat()
                     Log.d("stars", document.getLong("avgRate").toString())
-                    if (FirebaseAuth.getInstance().currentUser != null && document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid) == false) {
-                        Log.d("this", document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid).toString())
+                    if (FirebaseAuth.getInstance().currentUser != null && document.getString("uids")!!.contains(
+                            FirebaseAuth.getInstance().currentUser!!.uid
+                        ) == false
+                    ) {
+                        Log.d(
+                            "this",
+                            document.getString("uids")!!.contains(FirebaseAuth.getInstance().currentUser!!.uid).toString()
+                        )
 
                         rate_submit_button.setOnClickListener {
 
