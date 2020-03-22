@@ -74,6 +74,7 @@ class SignupActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener {
                     Log.d("signup", "Failed to create:${it.message}")
+                    Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
 
                 }
         }

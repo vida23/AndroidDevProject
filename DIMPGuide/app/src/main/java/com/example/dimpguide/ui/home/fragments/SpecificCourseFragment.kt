@@ -101,9 +101,6 @@ class SpecificCourseFragment : Fragment() {
                 Log.d(TAG, "get failed with ", exception)
             }
 
-
-
-
         root.findViewById<Button>(R.id.FAQ_button)
             .setOnClickListener {
                 findNavController().navigate(R.id.FAQFragment)

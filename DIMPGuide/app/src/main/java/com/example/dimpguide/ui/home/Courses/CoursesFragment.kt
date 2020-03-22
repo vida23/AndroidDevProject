@@ -47,6 +47,7 @@ class CoursesFragment : Fragment() {
                 if (!docs.isEmpty) {
                     for (doc in docs) {
                         if (doc.getString("optionalCourseOne").toString() != null || doc.getString("optionalCourseTwo").toString() != null ) {
+                            sleep(300)
                             optionalCourseOne = doc.getString("optionalCourseOne").toString()
                             optionalCourseTwo = doc.getString("optionalCourseTwo").toString()
                         }

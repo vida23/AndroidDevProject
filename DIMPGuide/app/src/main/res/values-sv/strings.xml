@@ -28,7 +28,7 @@
     <string name="rating">Lämmna gärna ett betyg på kursen</string>
     <string name="FAQ">FAQ</string>
     <string name="ask">Fråga</string>
-    <string name="enter_a_question">Fråga en fråga</string>
+    <string name="enter_a_question">Ställ en fråga</string>
     <string name="optional_course_picked"> Kursen redan valt</string>
     <string name="subject">Ämne</string>
     <string name="submit">Bekräfta</string>
@@ -58,7 +58,7 @@
     <string name="menu_slideshow">"Slideshow "</string>
     <string name="menu_tools">Verktyg</string>
     <string name="nav_header_desc">Navigation</string>
-    <string name="nav_header_subtitle">Nice</string>
+    <string name="nav_header_subtitle">Kommer snart...</string>
     <string name="nav_header_title">DIMP Guiden</string>
     <string name="navigation_drawer_close">Stäng navigationsmeny</string>
     <string name="navigation_drawer_open">Öppna navigationsmeny</string>
